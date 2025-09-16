@@ -20,6 +20,7 @@
 - PHP: 7.4.33
 - CryptoPro: установлен CSP и пакеты для CAdES, включая `cprocsp`, `cprocsp-devel`, `cprocsp-pki-cades`, `cprocsp-pki-phpcades`
 - PHP‑расширение: `php_CPCSP` (`libphpcades.so`) подключено
+- Версия php_CPCSP: 25.0.*-17
 - Веб/CLI: запускались CLI‑тесты от пользователя `bitrix`
 - Последняя проверка: 2025‑09‑16 13:15 (локальное время)
 

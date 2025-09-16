@@ -849,11 +849,11 @@ public function Decrypt(string $encryptedMessage) {}
     /**
  * Шифрует данные для указанных получателей.
  *
- * @param mixed $recipients Коллекция получателей (CPRecipients) или совместимый тип.
+ * @param int $encodingType Параметр encodingType.
  *
  * @return string
  */
-public function Encrypt($recipients) {}
+public function Encrypt(int $encodingType = 0) {}
     /**
  * Возвращает значение свойства Content.
  *
@@ -1256,36 +1256,42 @@ public function __construct() {}
  * Добавляет дополнительную подпись к уже подписанным данным.
  *
  * @param CPSigner $signer Подписант для дополнительной подписи.
+ * @param int $encodingType Параметр encodingType.
  *
  * @return string
  */
-public function CoSign(CPSigner $signer) {}
+public function CoSign(CPSigner $signer, int $encodingType = 0) {}
     /**
  * Добавляет дополнительную CAdES-подпись указанного типа.
  *
  * @param CPSigner $signer Подписант для дополнительной подписи.
  * @param int $cadesType Тип CAdES: CADES_BES, CADES_T...
+ * @param int $encodingType Параметр encodingType.
  *
  * @return string
  */
-public function CoSignCades(CPSigner $signer, int $cadesType) {}
+public function CoSignCades(CPSigner $signer, int $cadesType, int $encodingType = 0) {}
     /**
  * Добавляет подпись по заранее вычисленному хешу.
  *
  * @param CPSigner $signer Подписант для дополнительной подписи.
+ * @param CPHashedData $hashedData Параметр hashedData.
+ * @param int $cadesType Параметр cadesType.
+ * @param int $encodingType Параметр encodingType.
  *
  * @return string
  */
-public function CoSignHash(CPSigner $signer) {}
+public function CoSignHash(CPSigner $signer, CPHashedData $hashedData, int $cadesType, int $encodingType = 0) {}
     /**
  * Усиливает подпись до указанного уровня CAdES.
  *
- * @param string $signature Подпись (PKCS#7) для усиления.
  * @param int $cadesType Желаемый уровень CAdES.
+ * @param string $tsaAddress Параметр tsaAddress.
+ * @param int $encodingType Параметр encodingType.
  *
  * @return string
  */
-public function EnhanceCades(string $signature, int $cadesType) {}
+public function EnhanceCades(int $cadesType, string $tsaAddress, int $encodingType = 0) {}
     /**
  * Возвращает сертификаты из подписи.
  *
@@ -1331,37 +1337,43 @@ public function set_ContentEncoding(int $encoding) {}
  *
  * @param CPSigner $signer Подписант и его параметры.
  * @param bool $detached Если true — создаётся отсоединённая подпись.
+ * @param int $encodingType Параметр encodingType.
  *
  * @return string
  */
-public function Sign(CPSigner $signer, bool $detached = false) {}
+public function Sign(CPSigner $signer, bool $detached = false, int $encodingType = 0) {}
     /**
  * Создаёт подпись CAdES указанного типа.
  *
  * @param CPSigner $signer Подписант и его параметры.
  * @param int $cadesType Тип CAdES: CADES_BES, CADES_T, CADES_X_LONG_TYPE_1.
  * @param bool $detached Если true — отсоединённая подпись.
+ * @param int $encodingType Параметр encodingType.
  *
  * @return string
  */
-public function SignCades(CPSigner $signer, int $cadesType, bool $detached = false) {}
+public function SignCades(CPSigner $signer, int $cadesType, bool $detached = false, int $encodingType = 0) {}
     /**
  * Создаёт подпись по заранее вычисленному хешу.
  *
+ * @param CPHashedData $hashedData Параметр hashedData.
  * @param CPSigner $signer Подписант и его параметры.
+ * @param int $cadesType Параметр cadesType.
+ * @param int $encodingType Параметр encodingType.
  *
  * @return string
  */
-public function SignHash(CPSigner $signer) {}
+public function SignHash(CPHashedData $hashedData, CPSigner $signer, int $cadesType, int $encodingType = 0) {}
     /**
  * Проверяет подпись PKCS#7 (CMS).
  *
  * @param string $signedMessage Подписанное сообщение (PKCS#7).
  * @param bool $detached Если true — проверяется отсоединённая подпись.
+ * @param int $verifyFlag Параметр verifyFlag.
  *
  * @return bool
  */
-public function Verify(string $signedMessage, bool $detached = false) {}
+public function Verify(string $signedMessage, bool $detached = false, int $verifyFlag = 0) {}
     /**
  * Проверяет подпись CAdES указанного типа.
  *
@@ -1371,16 +1383,17 @@ public function Verify(string $signedMessage, bool $detached = false) {}
  *
  * @return bool
  */
-public function VerifyCades(string $signedMessage, int $cadesType, bool $detached = false) {}
+public function VerifyCades(string $signedMessage, int $cadesType = 0, bool $detached = false) {}
     /**
  * Проверяет подпись по ранее вычисленному хешу.
  *
- * @param mixed $hash Объект CPHashedData или строка хеш-значения.
+ * @param CPHashedData $hashedData Параметр hashedData.
  * @param string $signedMessage Подписанное сообщение (PKCS#7).
+ * @param int $cadesType Параметр cadesType.
  *
  * @return bool
  */
-public function VerifyHash($hash, string $signedMessage) {}
+public function VerifyHash(CPHashedData $hashedData, string $signedMessage, int $cadesType = 0) {}
 }
 
 /**
