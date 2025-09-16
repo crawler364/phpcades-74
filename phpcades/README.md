@@ -4,6 +4,8 @@
 
 ## Установка КриптоПро и PHPCades (под root)
 
+Важно: архив linux-amd64.tgz с дистрибутивом КриптоПро CSP не входит в репозиторий. Скачайте его вручную со страницы https://cryptopro.ru/products/csp/downloads и поместите файл в каталог phpcades/ под именем linux-amd64.tgz (скрипт установки распакует его автоматически).
+
 ```bash
 chmod +x install.sh
 sudo ./install.sh
