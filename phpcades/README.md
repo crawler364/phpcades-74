@@ -88,7 +88,7 @@ curl -fsSL -o /tmp/issuer.cer "URL_из_CA_эмитента"
 
 ## Проблемы
 
-- segmentation fault
+- httpd segmentation fault
 ```
 sudo /opt/cprocsp/sbin/amd64/cpconfig -ini '\cryptography\apppath' -add string 'libcurl.so' '/usr/lib64/libcurl.so.4.3.0'
 sudo systemctl restart httpd
