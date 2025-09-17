@@ -8,7 +8,7 @@
  * Автоматически сгенерированные заглушки для PHPCades расширения
  * 
  * Генератор: generate_stubs.php
- * Дата: Wed, 17 Sep 2025 17:46:40 +0300
+ * Дата: Wed, 17 Sep 2025 18:01:57 +0300
  */
 
 
@@ -74,7 +74,7 @@ class CPAlgorithm {
     public function get_Name(): int {}
     
     /**
-     * Возвращает алгоритм подписи или шифрования
+     * Устанавливает алгоритм подписи или шифрования
      *
      * @param int $name
      * @return void
@@ -82,11 +82,15 @@ class CPAlgorithm {
     public function set_Name(int $name): void {}
     
     /**
+     * Возвращает длину ключа
+     *
      * @return int
      */
     public function get_KeyLength(): int {}
     
     /**
+     * Устанавливает длину ключа
+     *
      * @param int $len
      * @return void
      */
@@ -101,18 +105,22 @@ class CPAttribute {
     public function __construct() {}
     
     /**
+     * Устанавливает объектный идентификатор атрибута
+     *
      * @param string $str
      * @return void
      */
     public function set_OID(string $str): void {}
     
     /**
+     * Возвращает объектный идентификатор атрибута
+     *
      * @return string
      */
     public function get_OID(): string {}
     
     /**
-     * Возвращает закодированное значение атрибута
+     * Устанавливает закодированное значение атрибута
      *
      * @param string $str
      * @return void
@@ -127,7 +135,7 @@ class CPAttribute {
     public function get_Value(): string {}
     
     /**
-     * Имя атрибута
+     * Устанавливает имя атрибута
      *
      * @param int $lname
      * @return void
@@ -135,14 +143,14 @@ class CPAttribute {
     public function set_Name(int $lname): void {}
     
     /**
-     * Имя атрибута
+     * Возвращает имя атрибута
      *
      * @return int
      */
     public function get_Name(): int {}
     
     /**
-     * Способ кодирования значения атрибута
+     * Устанавливает способ кодирования значения атрибута
      *
      * @param int $type
      * @return void
@@ -150,7 +158,7 @@ class CPAttribute {
     public function set_ValueEncoding(int $type): void {}
     
     /**
-     * Способ кодирования значения атрибута
+     * Возвращает способ кодирования значения атрибута
      *
      * @return int
      */
@@ -165,6 +173,8 @@ class CPAttributes {
     public function __construct() {}
     
     /**
+     * Добавляет атрибут в коллекцию
+     *
      * @param object $item
      * @return void
      */
@@ -201,6 +211,8 @@ class CPAttributes {
     public function Remove(int $idx): void {}
     
     /**
+     * Назначает коллекцию атрибутов
+     *
      * @param object $attrs
      * @return void
      */
@@ -265,60 +277,85 @@ class CPBasicConstraints {
     
 }
 
+/**
+ * Объект CPCardholderData содержит данные держателя карты. Объект предоставляет методы для получения персональных данных с карты.
+ */
 class CPCardholderData {
     public function __construct() {}
     
     /**
+     * Возвращает номер социального счета
+     *
      * @return string
      */
     public function get_SocialAccountNumber(): string {}
     
     /**
+     * Возвращает номер полиса ОМС
+     *
      * @return string
      */
     public function get_OMSNumber(): string {}
     
     /**
+     * Возвращает полное имя держателя карты
+     *
      * @return string
      */
     public function get_Name(): string {}
     
     /**
+     * Возвращает имя держателя карты
+     *
      * @return string
      */
     public function get_FirstName(): string {}
     
     /**
+     * Возвращает фамилию держателя карты
+     *
      * @return string
      */
     public function get_LastName(): string {}
     
     /**
+     * Возвращает отчество держателя карты
+     *
      * @return string
      */
     public function get_SecondName(): string {}
     
     /**
+     * Возвращает адрес издателя карты
+     *
      * @return string
      */
     public function get_CardIssuerAddress(): string {}
     
     /**
+     * Возвращает дату рождения держателя карты
+     *
      * @return string
      */
     public function get_DateOfBirth(): string {}
     
     /**
+     * Возвращает место рождения держателя карты
+     *
      * @return string
      */
     public function get_PlaceOfBirth(): string {}
     
     /**
+     * Возвращает пол держателя карты в виде строки
+     *
      * @return string
      */
     public function get_SexString(): string {}
     
     /**
+     * Возвращает пол держателя карты в числовом виде
+     *
      * @return int
      */
     public function get_Sex(): int {}
@@ -561,25 +598,29 @@ class CPEKU {
     public function __construct() {}
     
     /**
+     * Возвращает имя EKU
+     *
      * @return int
      */
     public function get_Name(): int {}
     
     /**
+     * Устанавливает имя EKU
+     *
      * @param int $name
      * @return void
      */
     public function set_Name(int $name): void {}
     
     /**
-     * Возвращает или устанавливает строку, содержащую объектный идентификатор EKU
+     * Возвращает объектный идентификатор EKU
      *
      * @return string
      */
     public function get_OID(): string {}
     
     /**
-     * Возвращает или устанавливает строку, содержащую объектный идентификатор EKU
+     * Устанавливает объектный идентификатор EKU
      *
      * @param string $oID
      * @return void
@@ -595,6 +636,8 @@ class CPEKUs {
     public function __construct() {}
     
     /**
+     * Добавляет EKU в коллекцию
+     *
      * @param object $item
      * @return void
      */
@@ -616,11 +659,15 @@ class CPEKUs {
     public function get_Item(int $idx): object {}
     
     /**
+     * Удаляет все EKU из коллекции
+     *
      * @return void
      */
     public function Clear(): void {}
     
     /**
+     * Удаляет EKU из коллекции
+     *
      * @param int $idx
      * @return void
      */
@@ -1060,10 +1107,15 @@ class CPRecipients {
     
 }
 
+/**
+ * Объект CPSignedData предоставляет методы для создания и проверки электронной подписи
+ */
 class CPSignedData {
     public function __construct() {}
     
     /**
+     * Создает усовершенствованную подпись CAdES
+     *
      * @param object $zSigner
      * @param int $cadesType
      * @param int $detached
@@ -1138,6 +1190,8 @@ class CPSignedData {
     public function VerifyHash(object $zHashedData, string $sSignedMessage, ?int $signedMessage = null): mixed {}
     
     /**
+     * Проверяет подпись
+     *
      * @param string $sSignedMessage
      * @param int $signedMessage
      * @param int $detached
@@ -1146,23 +1200,31 @@ class CPSignedData {
     public function Verify(string $sSignedMessage, int $signedMessage, int $detached): mixed {}
     
     /**
+     * Кодирование содержимого
+     *
      * @param int $type
      * @return void
      */
     public function set_ContentEncoding(int $type): void {}
     
     /**
+     * Кодирование содержимого
+     *
      * @return int
      */
     public function get_ContentEncoding(): int {}
     
     /**
+     * Содержимое для подписи
+     *
      * @param string $sVal
      * @return void
      */
     public function set_Content(string $sVal): void {}
     
     /**
+     * Содержимое для подписи
+     *
      * @return string
      */
     public function get_Content(): string {}
@@ -1411,32 +1473,45 @@ class CPStore {
     
 }
 
+/**
+ * Объект SymmetricAlgorithm предоставляет методы для работы с симметричным шифрованием
+ */
 class SymmetricAlgorithm {
     public function __construct() {}
     
     /**
+     * Возвращает данные диверсификации
+     *
      * @return string
      */
     public function get_DiversData(): string {}
     
     /**
+     * Устанавливает данные диверсификации
+     *
      * @param string $str
      * @return void
      */
     public function set_DiversData(string $str): void {}
     
     /**
+     * Возвращает вектор инициализации
+     *
      * @return string
      */
     public function get_IV(): string {}
     
     /**
+     * Устанавливает вектор инициализации
+     *
      * @param string $str
      * @return void
      */
     public function set_IV(string $str): void {}
     
     /**
+     * Шифрует данные
+     *
      * @param string $str
      * @param int $isFinal
      * @return string
@@ -1444,6 +1519,8 @@ class SymmetricAlgorithm {
     public function Encrypt(string $str, int $isFinal): string {}
     
     /**
+     * Расшифровывает данные
+     *
      * @param string $str
      * @param ?int $isFinal
      * @return string
@@ -1451,17 +1528,23 @@ class SymmetricAlgorithm {
     public function Decrypt(string $str, ?int $isFinal = null): string {}
     
     /**
+     * Генерирует ключ
+     *
      * @param ?int $algo
      * @return mixed
      */
     public function GenerateKey(?int $algo = null): mixed {}
     
     /**
+     * Диверсифицирует ключ
+     *
      * @return symmetric_algorithm
      */
     public function DiversifyKey(): symmetric_algorithm {}
     
     /**
+     * Импортирует ключ
+     *
      * @param string $dataStr
      * @param object $ldataStr
      * @param ?string $zRecipient
@@ -1470,6 +1553,8 @@ class SymmetricAlgorithm {
     public function ImportKey(string $dataStr, object $ldataStr, ?string $zRecipient = null): mixed {}
     
     /**
+     * Экспортирует ключ
+     *
      * @param object $zRecipient
      * @return string
      */
@@ -1477,25 +1562,36 @@ class SymmetricAlgorithm {
     
 }
 
+/**
+ * Объект Version описывает информацию о версии
+ */
 class Version {
     public function __construct() {}
     
     /**
+     * Возвращает старший номер версии
+     *
      * @return int
      */
     public function get_MajorVersion(): int {}
     
     /**
+     * Возвращает младший номер версии
+     *
      * @return int
      */
     public function get_MinorVersion(): int {}
     
     /**
+     * Возвращает номер сборки
+     *
      * @return int
      */
     public function get_BuildVersion(): int {}
     
     /**
+     * Возвращает строковое представление версии
+     *
      * @return string
      */
     public function toString(): string {}
