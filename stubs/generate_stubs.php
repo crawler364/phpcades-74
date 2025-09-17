@@ -77,6 +77,39 @@ function getPropertyDescription($className, $methodName) {
     return '';
 }
 
+/**
+ * Парсит константы из исходников PHPCades
+ */
+function parseConstants($srcDir) {
+    $constants = [];
+    
+    // Поиск файлов с константами (обычно dllmain.cpp)
+    $cppFiles = glob("$srcDir/*.cpp");
+    
+    foreach ($cppFiles as $file) {
+        $content = file_get_contents($file);
+        
+        // Парсим REGISTER_LONG_CONSTANT
+        if (preg_match_all('/REGISTER_LONG_CONSTANT\s*\(\s*"([^"]+)"\s*,\s*([^,]+)\s*,/', $content, $matches)) {
+            for ($i = 0; $i < count($matches[1]); $i++) {
+                $name = $matches[1][$i];
+                $value = trim($matches[2][$i]);
+                
+                // Преобразуем значение в корректный PHP формат
+                if (is_numeric($value)) {
+                    $constants[$name] = (int)$value;
+                } else {
+                    $constants[$name] = $value;
+                }
+                
+                echo "  Найдена константа: $name = $value\n";
+            }
+        }
+    }
+    
+    return $constants;
+}
+
 function parsePhpCadesClasses($srcDir) {
     $classes = [];
     
@@ -270,7 +303,7 @@ function parseReturnType($content, $methodName) {
     return '';
 }
 
-function generateStubFile($classes, $outputFile) {
+function generateStubFile($classes, $constants, $outputFile) {
     // Создаем заголовок с комментариями и датой
     $stubContent = "<?php\n";
     $stubContent .= "/** @noinspection PhpUnused */\n";
@@ -284,6 +317,19 @@ function generateStubFile($classes, $outputFile) {
     $stubContent .= " * Дата: " . date('r') . "\n";
     $stubContent .= " */\n\n";
     $stubContent .= "\n/** @generate-class-entries */\n\n";
+    
+    // Добавляем константы
+    if (!empty($constants)) {
+        $stubContent .= "// Константы расширения php_cpcsp\n";
+        foreach ($constants as $name => $value) {
+            if (is_string($value)) {
+                $stubContent .= "const $name = '$value';\n";
+            } else {
+                $stubContent .= "const $name = $value;\n";
+            }
+        }
+        $stubContent .= "\n";
+    }
     
     foreach ($classes as $className => $classData) {
         // Добавляем описание класса из карты документации
@@ -390,13 +436,18 @@ echo "Источник: $srcDir\n";
 $classes = parsePhpCadesClasses($srcDir);
 echo "\nНайдено классов: " . count($classes) . "\n";
 
+// Парсинг констант
+echo "--- Парсинг констант ---\n";
+$constants = parseConstants($srcDir);
+echo "Найдено констант: " . count($constants) . "\n";
+
 // Загрузка карты документации
 echo "--- Загрузка карты документации ---\n";
 $jsonFile = 'phpcades_documentation_map.json';
 loadDocumentationMap($jsonFile);
 
 $outputFile = 'php_cpcsp-phpcades-stubs.php';
-generateStubFile($classes, $outputFile);
+generateStubFile($classes, $constants, $outputFile);
 
 // Проверка создания финального файла
 if (!file_exists($outputFile)) {
