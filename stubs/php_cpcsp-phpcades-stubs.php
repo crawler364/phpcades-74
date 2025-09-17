@@ -1,1753 +1,1504 @@
 <?php
-/** @noinspection DuplicatedCode */
-/** @noinspection PhpDefineCanBeReplacedWithConstInspection */
-/** @noinspection PhpReturnDocTypeMismatchInspection */
-/** @noinspection PhpMultipleClassDeclarationsInspection */
-/** @noinspection PhpInconsistentReturnPointsInspection */
 /** @noinspection PhpUnused */
+/** @noinspection PhpInconsistentReturnPointsInspection */
+/** @noinspection PhpUndefinedClassInspection */
 
 /**
- * Автоматически сгенерированный файл стабсов для расширения CryptoPro CAdES (php_CPCSP).
- *
- * Внимание: файл создан программно и предназначен для IDE-подсказок (автодополнение, статический анализ).
- * Методы и параметры описаны на русском языке. В спорных местах указаны обобщённые типы.
- * Для точной информации ориентируйтесь на установленную у вас версию расширения и официальную документацию.
+ * PHPCades Stubs
+ * Автоматически сгенерированные заглушки для PHPCades расширения
+ * 
+ * Генератор: generate_stubs.php
+ * Дата: Wed, 17 Sep 2025 17:46:40 +0300
  */
 
-const ACTIVE_DIRECTORY_USER_STORE = 3;
-const ATTRIBUTE_OTHER = 4294967295;
-const AUTHENTICATED_ATTRIBUTE_DOCUMENT_DESCRIPTION = 2;
-const AUTHENTICATED_ATTRIBUTE_DOCUMENT_NAME = 1;
-const AUTHENTICATED_ATTRIBUTE_SIGNING_TIME = 0;
-const BASE64_TO_BINARY = 1;
-const CADESCOM_ENCRYPTION_ALGORITHM_3DES = 3;
-const CADESCOM_ENCRYPTION_ALGORITHM_AES = 4;
-const CADESCOM_ENCRYPTION_ALGORITHM_DES = 2;
-const CADESCOM_ENCRYPTION_ALGORITHM_GOST_28147_89 = 25;
-const CADESCOM_ENCRYPTION_ALGORITHM_RC2 = 0;
-const CADESCOM_ENCRYPTION_ALGORITHM_RC4 = 1;
-const CADESCOM_HASH_ALGORITHM_CP_GOST_3411 = 100;
-const CADESCOM_HASH_ALGORITHM_CP_GOST_3411_2012_256 = 101;
-const CADESCOM_HASH_ALGORITHM_CP_GOST_3411_2012_256_HMAC = 111;
-const CADESCOM_HASH_ALGORITHM_CP_GOST_3411_2012_512 = 102;
-const CADESCOM_HASH_ALGORITHM_CP_GOST_3411_2012_512_HMAC = 112;
-const CADESCOM_HASH_ALGORITHM_CP_GOST_3411_HMAC = 110;
-const CADES_BES = 1;
-const CADES_DEFAULT = 0;
-const CADES_T = 5;
-const CADES_X_LONG_TYPE_1 = 93;
-const CERTIFICATE_FIND_APPLICATION_POLICY = 7;
-const CERTIFICATE_FIND_CERTIFICATE_POLICY = 8;
-const CERTIFICATE_FIND_EXTENDED_PROPERTY = 6;
-const CERTIFICATE_FIND_EXTENSION = 5;
-const CERTIFICATE_FIND_ISSUER_NAME = 2;
-const CERTIFICATE_FIND_KEY_USAGE = 12;
-const CERTIFICATE_FIND_ROOT_NAME = 3;
-const CERTIFICATE_FIND_SHA1_HASH = 0;
-const CERTIFICATE_FIND_SUBJECT_NAME = 1;
-const CERTIFICATE_FIND_TEMPLATE_NAME = 4;
-const CERTIFICATE_FIND_TIME_EXPIRED = 11;
-const CERTIFICATE_FIND_TIME_NOT_YET_VALID = 10;
-const CERTIFICATE_FIND_TIME_VALID = 9;
-const CERTIFICATE_INCLUDE_CHAIN_EXCEPT_ROOT = 0;
-const CERTIFICATE_INCLUDE_END_ENTITY_ONLY = 2;
-const CERTIFICATE_INCLUDE_WHOLE_CHAIN = 1;
-const CERT_INFO_ISSUER_DNS_NAME = 7;
-const CERT_INFO_ISSUER_EMAIL_NAME = 3;
-const CERT_INFO_ISSUER_SIMPLE_NAME = 1;
-const CERT_INFO_ISSUER_UPN = 5;
-const CERT_INFO_SUBJECT_DNS_NAME = 6;
-const CERT_INFO_SUBJECT_EMAIL_NAME = 2;
-const CERT_INFO_SUBJECT_SIMPLE_NAME = 0;
-const CERT_INFO_SUBJECT_UPN = 4;
-const CHECK_BASIC_CONSTRAINTS = 128;
-const CHECK_COMPLETE_CHAIN = 32;
-const CHECK_NAME_CONSTRAINTS = 64;
-const CHECK_NESTED_VALIDITY_PERIOD = 256;
-const CHECK_NONE = 0;
-const CHECK_OFFLINE_ALL = 503;
-const CHECK_OFFLINE_REVOCATION_STATUS = 16;
-const CHECK_ONLINE_ALL = 495;
-const CHECK_ONLINE_REVOCATION_STATUS = 8;
-const CHECK_SIGNATURE_VALIDITY = 4;
-const CHECK_TIME_VALIDITY = 2;
-const CHECK_TRUSTED_ROOT = 1;
-const CRL_SIGN_KEY_USAGE = 2;
-const CURRENT_USER_STORE = 2;
-const DATA_ENCIPHERMENT_KEY_USAGE = 16;
-const DECIPHER_ONLY_KEY_USAGE = 32768;
-const DIGITAL_SIGNATURE_KEY_USAGE = 128;
-const EKU_CLIENT_AUTH = 2;
-const EKU_CODE_SIGNING = 3;
-const EKU_EMAIL_PROTECTION = 4;
-const EKU_ENCRYPTING_FILE_SYSTEM = 6;
-const EKU_OTHER = 0;
-const EKU_SERVER_AUTH = 1;
-const EKU_SMARTCARD_LOGON = 5;
-const ENCIPHER_ONLY_KEY_USAGE = 1;
-const ENCODE_ANY = 4294967295;
-const ENCODE_BASE64 = 0;
-const ENCODE_BINARY = 1;
-const ENCRYPTION_KEY_LENGTH_128_BITS = 3;
-const ENCRYPTION_KEY_LENGTH_192_BITS = 4;
-const ENCRYPTION_KEY_LENGTH_256_BITS = 5;
-const ENCRYPTION_KEY_LENGTH_40_BITS = 1;
-const ENCRYPTION_KEY_LENGTH_56_BITS = 2;
-const ENCRYPTION_KEY_LENGTH_MAXIMUM = 0;
-const HASH_ALGORITHM_GOSTR_3411 = 100;
-const HASH_ALGORITHM_MD2 = 1;
-const HASH_ALGORITHM_MD4 = 2;
-const HASH_ALGORITHM_MD5 = 3;
-const HASH_ALGORITHM_SHA1 = 0;
-const HASH_ALGORITHM_SHA_256 = 4;
-const HASH_ALGORITHM_SHA_384 = 5;
-const HASH_ALGORITHM_SHA_512 = 6;
-const KEY_AGREEMENT_KEY_USAGE = 8;
-const KEY_CERT_SIGN_KEY_USAGE = 4;
-const KEY_ENCIPHERMENT_KEY_USAGE = 32;
-const KEY_SPEC_KEYEXCHANGE = 1;
-const KEY_SPEC_SIGNATURE = 2;
-const LOCAL_MACHINE_STORE = 1;
-const MEMORY_STORE = 0;
-const NON_REPUDIATION_KEY_USAGE = 64;
-const OFFLINE_CRL_SIGN_KEY_USAGE = 2;
-const OID_APPLICATION_CERT_POLICIES_EXTENSION = 23;
-const OID_APPLICATION_POLICY_CONSTRAINTS_EXTENSION = 25;
-const OID_APPLICATION_POLICY_MAPPINGS_EXTENSION = 24;
-const OID_AUTHORITY_INFO_ACCESS_EXTENSION     = 26;
-const OID_AUTHORITY_KEY_IDENTIFIER2_EXTENSION = 19;
-const OID_AUTHORITY_KEY_IDENTIFIER_EXTENSION = 1;
-const OID_BASIC_CONSTRAINTS2_EXTENSION = 14;
-const OID_BASIC_CONSTRAINTS_EXTENSION = 8;
-const OID_CERTIFICATE_TEMPLATE_EXTENSION = 22;
-const OID_CERT_POLICIES_95_EXTENSION = 3;
-const OID_CERT_POLICIES_EXTENSION = 17;
-const OID_CLIENT_AUTH_eku = 101;
-const OID_CODE_SIGNING_eku = 102;
-const OID_CRL_DIST_POINTS_EXTENSION = 16;
-const OID_CTL_USAGE_SIGNING_eku = 108;
-const OID_DIGITAL_RIGHTS_eku = 120;
-const OID_EFS_RECOVERY_eku = 112;
-const OID_EMAIL_PROTECTION_eku = 103;
-const OID_EMBEDED_NT_CRYPTO_eku = 116;
-const OID_ENCRYPTING_FILE_SYSTEM_eku = 111;
-const OID_ENHANCED_KEY_USAGE_EXTENSION = 21;
-const OID_IPSEC_END_SYSTEM_eku = 104;
-const OID_IPSEC_TUNNEL_eku = 105;
-const OID_IPSEC_USER_eku = 106;
-const OID_ISSUER_ALT_NAME2_EXTENSION = 13;
-const OID_ISSUER_ALT_NAME_EXTENSION = 7;
-const OID_KEY_ATTRIBUTES_EXTENSION = 2;
-const OID_KEY_RECOVERY_eku = 119;
-const OID_KEY_USAGE_EXTENSION = 10;
-const OID_KEY_USAGE_RESTRICTION_EXTENSION = 4;
-const OID_LEGACY_POLICY_MAPPINGS_EXTENSION = 5;
-const OID_LICENSES_eku = 121;
-const OID_LICENSE_SERVER_eku = 122;
-const OID_NAME_CONSTRAINTS_EXTENSION = 15;
-const OID_NT5_CRYPTO_eku = 114;
-const OID_OEM_WHQL_CRYPTO_eku = 115;
-const OID_OTHER = 0;
-const OID_PKIX_POLICY_QUALIFIER_CPS = 124;
-const OID_PKIX_POLICY_QUALIFIER_USERNOTICE = 125;
-const OID_POLICY_CONSTRAINTS_EXTENSION = 20;
-const OID_POLICY_MAPPINGS_EXTENSION = 18;
-const OID_PRIVATEKEY_USAGE_PERIOD_EXTENSION = 11;
-const OID_QUALIFIED_SUBORDINATION_eku = 118;
-const OID_ROOT_LIST_SIGNER_eku = 117;
-const OID_SERVER_AUTH_eku = 100;
-const OID_SERVER_GATED_CRYPTO_eku = 110;
-const OID_SMART_CARD_LOGON_eku = 123;
-const OID_SUBJECT_ALT_NAME2_EXTENSION = 12;
-const OID_SUBJECT_ALT_NAME_EXTENSION = 6;
-const OID_SUBJECT_KEY_IDENTIFIER_EXTENSION = 9;
-const OID_TIME_STAMPING_eku = 107;
-const OID_TIME_STAMP_SIGNING_eku = 109;
-const OID_WHQL_CRYPTO_eku = 113;
-const PKCS7_TYPE = 65535;
-const PROV_DH_SCHANNEL = 18;
-const PROV_DSS = 3;
-const PROV_DSS_DH = 13;
-const PROV_EC_ECDSA_FULL = 16;
-const PROV_EC_ECDSA_SIG = 14;
-const PROV_EC_ECNRA_FULL = 17;
-const PROV_EC_ECNRA_SIG = 15;
-const PROV_FORTEZZA = 4;
-const PROV_INTEL_SEC = 22;
-const PROV_MS_EXCHANGE = 5;
-const PROV_REPLACE_OWF = 23;
-const PROV_RNG = 21;
-const PROV_RSA_AES = 24;
-const PROV_RSA_FULL = 1;
-const PROV_RSA_SCHANNEL = 12;
-const PROV_RSA_SIG = 2;
-const PROV_SPYRUS_LYNKS = 20;
-const PROV_SSL = 6;
-const SEX_FEMALE = 2;
-const SEX_MALE = 1;
-const SEX_NOT_APPLICABLE = 9;
-const SEX_NOT_KNOWN = 0;
-const SMART_CARD_USER_STORE = 4;
-const STORE_OPEN_EXISTING_ONLY = 128;
-const STORE_OPEN_INCLUDE_ARCHIVED = 256;
-const STORE_OPEN_MAXIMUM_ALLOWED = 2;
-const STORE_OPEN_READ_ONLY = 0;
-const STORE_OPEN_READ_WRITE = 1;
-const STRING_TO_UCS2LE = 0;
-const VERIFY_SIGNATURE_AND_CERTIFICATE = 1;
-const VERIFY_SIGNATURE_ONLY = 0;
-const XML_SIGNATURE_TYPE_ENVELOPED = 0;
-const XML_SIGNATURE_TYPE_ENVELOPING = 1;
-const XML_SIGNATURE_TYPE_TEMPLATE = 2;
+
+/** @generate-class-entries */
 
 /**
- * Информация о версиях и сборках криптопровайдера и плагина.
+ * Объект AboutВерсия библиотеки. Объект About предоставляет интерфейс IAbout, IAbout3, IAbout4, IAbout5. Объект About может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта About: CAdESCOM. About.
  */
 class About {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса About.
- *
- * @return void
- */
-public function __construct() {}
+     * Возвращает старший компонент версии
+     *
+     * @return int
+     */
+    public function get_MajorVersion(): int {}
+    
     /**
- * Выполняет операцию CSPVersion.
- *
- * @return mixed
- */
-public function CSPVersion() {}
+     * Возвращает младший компонент версии
+     *
+     * @return int
+     */
+    public function get_MinorVersion(): int {}
+    
     /**
- * Возвращает значение свойства BuildVersion.
- *
- * @return mixed
- */
-public function get_BuildVersion() {}
+     * @return int
+     */
+    public function get_BuildVersion(): int {}
+    
     /**
- * Возвращает значение свойства MajorVersion.
- *
- * @return mixed
- */
-public function get_MajorVersion() {}
+     * Возвращает строковое представление версии
+     *
+     * @return string
+     */
+    public function get_Version(): string {}
+    
     /**
- * Возвращает значение свойства MinorVersion.
- *
- * @return mixed
- */
-public function get_MinorVersion() {}
+     * @param ?string $provName
+     * @param ?int $provType
+     * @return CPVersion
+     */
+    public function CSPVersion(?string $provName = null, ?int $provType = null): CPVersion {}
+    
     /**
- * Возвращает значение свойства Version.
- *
- * @return mixed
- */
-public function get_Version() {}
-    /**
- * Выполняет операцию PluginVersion.
- *
- * @return mixed
- */
-public function PluginVersion() {}
+     * @return CPVersion
+     */
+    public function PluginVersion(): CPVersion {}
+    
 }
 
 /**
- * Алгоритм шифрования/хеширования/подписи и его параметры.
+ * Объект AlgorithmОписывает алгоритм шифрования. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. Algorithm. В отличие от объекта Microsoft CAPICOM. Algorithm, свойство Name данного объекта доступно только для чтения. Объект данного класса нельзя создать. Данный объект возвращает свойство Algorithm объекта CPEnvelopedData.
  */
 class CPAlgorithm {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPAlgorithm.
- *
- * @return void
- */
-public function __construct() {}
+     * Возвращает алгоритм подписи или шифрования
+     *
+     * @return int
+     */
+    public function get_Name(): int {}
+    
     /**
- * Возвращает значение свойства KeyLength.
- *
- * @return mixed
- */
-public function get_KeyLength() {}
+     * Возвращает алгоритм подписи или шифрования
+     *
+     * @param int $name
+     * @return void
+     */
+    public function set_Name(int $name): void {}
+    
     /**
- * Возвращает значение свойства Name.
- *
- * @return mixed
- */
-public function get_Name() {}
+     * @return int
+     */
+    public function get_KeyLength(): int {}
+    
     /**
- * Устанавливает значение свойства KeyLength.
- *
- * @param int $length Параметр length.
- *
- * @return void
- */
-public function set_KeyLength(int $length) {}
-    /**
- * Устанавливает значение свойства Name.
- *
- * @param string $name Параметр name.
- *
- * @return void
- */
-public function set_Name(string $name) {}
+     * @param int $len
+     * @return void
+     */
+    public function set_KeyLength(int $len): void {}
+    
 }
 
 /**
- * Атрибут CMS/CAdES (OID, имя, значение, кодировка).
+ * Объект CPAttributeАтрибут усовершенствованной подписи (подписанный или неподписанный). Объект CPAttribute предоставляет средства для работы с отдельным атрибутом усовершенствованной подписи. Объект CPAttribute предоставляет интерфейсы ICPAttribute и ICPAttribute2. Объект CPAttribute может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта CPAttribute: CAdESCOM. CPAttribute.
  */
 class CPAttribute {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPAttribute.
- *
- * @return void
- */
-public function __construct() {}
+     * @param string $str
+     * @return void
+     */
+    public function set_OID(string $str): void {}
+    
     /**
- * Возвращает значение свойства Name.
- *
- * @return mixed
- */
-public function get_Name() {}
+     * @return string
+     */
+    public function get_OID(): string {}
+    
     /**
- * Возвращает значение свойства OID.
- *
- * @return mixed
- */
-public function get_OID() {}
+     * Возвращает закодированное значение атрибута
+     *
+     * @param string $str
+     * @return void
+     */
+    public function set_Value(string $str): void {}
+    
     /**
- * Возвращает значение свойства Value.
- *
- * @return mixed
- */
-public function get_Value() {}
+     * Возвращает закодированное значение атрибута
+     *
+     * @return string
+     */
+    public function get_Value(): string {}
+    
     /**
- * Возвращает значение свойства ValueEncoding.
- *
- * @return mixed
- */
-public function get_ValueEncoding() {}
+     * Имя атрибута
+     *
+     * @param int $lname
+     * @return void
+     */
+    public function set_Name(int $lname): void {}
+    
     /**
- * Устанавливает значение свойства Name.
- *
- * @param string $name Параметр name.
- *
- * @return void
- */
-public function set_Name(string $name) {}
+     * Имя атрибута
+     *
+     * @return int
+     */
+    public function get_Name(): int {}
+    
     /**
- * Устанавливает значение свойства OID.
- *
- * @param mixed $oid Параметр oid.
- *
- * @return void
- */
-public function set_OID($oid) {}
+     * Способ кодирования значения атрибута
+     *
+     * @param int $type
+     * @return void
+     */
+    public function set_ValueEncoding(int $type): void {}
+    
     /**
- * Устанавливает значение свойства Value.
- *
- * @param mixed $value Новое значение.
- *
- * @return void
- */
-public function set_Value($value) {}
-    /**
- * Устанавливает значение свойства ValueEncoding.
- *
- * @param int $encoding Параметр encoding.
- *
- * @return void
- */
-public function set_ValueEncoding(int $encoding) {}
+     * Способ кодирования значения атрибута
+     *
+     * @return int
+     */
+    public function get_ValueEncoding(): int {}
+    
 }
 
 /**
- * Коллекция атрибутов CMS/CAdES.
+ * Объект CPAttributes = Коллекция объектов CPAttribute. Объект CPAttributes предоставляет интерфейс ICPAttributes. Объект данного класса нельзя создать. Данный объект возвращают свойства AuthenticatedAttributes2 и UnauthenticatedAttributes объекта CPSigner.
  */
 class CPAttributes {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPAttributes.
- *
- * @return void
- */
-public function __construct() {}
+     * @param object $item
+     * @return void
+     */
+    public function Add(object $item): void {}
+    
     /**
- * Добавляет элемент в коллекцию.
- *
- * @param CPAttribute $attribute Параметр attribute.
- *
- * @return void
- */
-public function Add(CPAttribute $attribute) {}
+     * Возвращает количество атрибутов в коллекции
+     *
+     * @return int
+     */
+    public function get_Count(): int {}
+    
     /**
- * Выполняет операцию Assign.
- *
- * @param CPAttributes $sourceAttributes Параметр sourceAttributes.
- *
- * @return mixed
- */
-public function Assign(CPAttributes $sourceAttributes) {}
+     * Возвращает атрибут из коллекции по его индексу
+     *
+     * @param int $idx
+     * @return CPAttribute
+     */
+    public function get_Item(int $idx): CPAttribute {}
+    
     /**
- * Очищает коллекцию.
- *
- * @return void
- */
-public function Clear() {}
+     * Удаляет все атрибуты из коллекции
+     *
+     * @return void
+     */
+    public function Clear(): void {}
+    
     /**
- * Возвращает значение свойства Count.
- *
- * @return mixed
- */
-public function get_Count() {}
+     * Удаляет атрибут из коллекции
+     *
+     * @param int $idx
+     * @return void
+     */
+    public function Remove(int $idx): void {}
+    
     /**
- * Возвращает значение свойства Item.
- *
- * @param int $index Параметр index.
- *
- * @return mixed
- */
-public function get_Item(int $index) {}
-    /**
- * Удаляет элемент из коллекции.
- *
- * @param int $index Индекс удаляемого элемента.
- *
- * @return void
- */
-public function Remove(int $index) {}
+     * @param object $attrs
+     * @return void
+     */
+    public function Assign(object $attrs): void {}
+    
 }
 
 /**
- * Расширение сертификата BasicConstraints.
+ * Объект BasicConstraintsОписывает основные ограничения на использование сертификата. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. BasicConstraints. Объект данного класса нельзя создать. Данный объект возвращает метод BasicConstraints объекта Certificate.
  */
 class CPBasicConstraints {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPBasicConstraints.
- *
- * @return void
- */
-public function __construct() {}
+     * Присутствует ли расширение
+     *
+     * @param int $lpr
+     * @return void
+     */
+    public function set_IsPresent(int $lpr): void {}
+    
     /**
- * Возвращает значение свойства IsCertificateAuthority.
- *
- * @return mixed
- */
-public function get_IsCertificateAuthority() {}
+     * Присутствует ли расширение
+     *
+     * @return int
+     */
+    public function get_IsPresent(): int {}
+    
     /**
- * Возвращает значение свойства IsCritical.
- *
- * @return mixed
- */
-public function get_IsCritical() {}
+     * Является ли расширение критическим
+     *
+     * @param int $lcr
+     * @return void
+     */
+    public function set_IsCritical(int $lcr): void {}
+    
     /**
- * Возвращает значение свойства IsPathLenConstraintPresent.
- *
- * @return mixed
- */
-public function get_IsPathLenConstraintPresent() {}
+     * Является ли расширение критическим
+     *
+     * @return int
+     */
+    public function get_IsCritical(): int {}
+    
     /**
- * Возвращает значение свойства IsPresent.
- *
- * @return mixed
- */
-public function get_IsPresent() {}
+     * @return int
+     */
+    public function get_IsCertificateAuthority(): int {}
+    
     /**
- * Возвращает значение свойства PathLenConstraint.
- *
- * @return mixed
- */
-public function get_PathLenConstraint() {}
+     * Существует ли ограничение на длину пути сертификата
+     *
+     * @return int
+     */
+    public function get_IsPathLenConstraintPresent(): int {}
+    
     /**
- * Устанавливает значение свойства IsCritical.
- *
- * @param bool $isCritical Параметр isCritical.
- *
- * @return void
- */
-public function set_IsCritical(bool $isCritical) {}
+     * Ограничение на длину пути
+     *
+     * @return int
+     */
+    public function get_PathLenConstraint(): int {}
+    
+}
+
+class CPCardholderData {
+    public function __construct() {}
+    
     /**
- * Устанавливает значение свойства IsPresent.
- *
- * @param bool $isPresent Параметр isPresent.
- *
- * @return void
- */
-public function set_IsPresent(bool $isPresent) {}
+     * @return string
+     */
+    public function get_SocialAccountNumber(): string {}
+    
+    /**
+     * @return string
+     */
+    public function get_OMSNumber(): string {}
+    
+    /**
+     * @return string
+     */
+    public function get_Name(): string {}
+    
+    /**
+     * @return string
+     */
+    public function get_FirstName(): string {}
+    
+    /**
+     * @return string
+     */
+    public function get_LastName(): string {}
+    
+    /**
+     * @return string
+     */
+    public function get_SecondName(): string {}
+    
+    /**
+     * @return string
+     */
+    public function get_CardIssuerAddress(): string {}
+    
+    /**
+     * @return string
+     */
+    public function get_DateOfBirth(): string {}
+    
+    /**
+     * @return string
+     */
+    public function get_PlaceOfBirth(): string {}
+    
+    /**
+     * @return string
+     */
+    public function get_SexString(): string {}
+    
+    /**
+     * @return int
+     */
+    public function get_Sex(): int {}
+    
 }
 
 /**
- * Сертификат X.509 с методами экспорта и получения свойств.
+ * Объект CPCertificateОписывает сертификат открытого ключа. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. Certificate, а интерфейсы ICPCertificate2 и IAdditionalStore. В отличие от объекта Microsoft CAPICOM. Certificate, для данного объекта реализованы только следующие методы и свойства: **Export**, **Import**, **GetInfo**, **HasPrivateKey**, **IsValid**, **IssuerName**, **SerialNumber**, **SubjectName**, **Thumbprint**, **ValidFromDate**, **ValidToDate**, **Version**, **ExtendedKeyUsage**, **KeyUsage**, **PublicKey**, **PrivateKey**, **Extensions**, **BasicConstraints**. Метод AdditionalStore позволяет передать в объект дополнительное хранилище для проверки статуса сертификата. Метод **GetInfo** с использованием параметра CADESCOM_CERT_INFO_ROLE позволяет дополнительно определить положение сертификата в цепочке (ROOT/CA/LEAF). > Метод Export в КриптоПро ЭЦП Browser plug-in не поддерживает кодировку CAPICOM_ENCODE_BINARY. См. Особенности работы с бинарными данными. Объект Certificate может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта Certificate: CAdESCOM. Certificate. Для работы в браузере Internet Explorer рекомендуется использовать объект CAdESCOM. Certificate вместо CAPICOM. Certificate. > В библиотеке типов данный объект присутствует под именем CPCertificate.
  */
 class CPCertificate {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPCertificate.
- *
- * @return void
- */
-public function __construct() {}
+     * Возвращает информацию из сертификата
+     *
+     * @param int $type
+     * @return string
+     */
+    public function GetInfo(int $type): string {}
+    
     /**
- * Возвращает расширение BasicConstraints.
- *
- * @return CPBasicConstraints
- */
-public function BasicConstraints() {}
+     * Производит поиск закрытого ключа соответствующего сертификату открытого ключа и устанавливает ссылку на него
+     *
+     * @param ?string $str
+     * @return void
+     */
+    public function FindPrivateKey(?string $str = null): void {}
+    
     /**
- * Экспортирует сертификат в указанной кодировке.
- *
- * @param int $encodingType Тип кодировки: ENCODE_BASE64/ENCODE_BINARY и т. п.
- *
- * @return string
- */
-public function Export(int $encodingType) {}
+     * Имеется ли закрытый ключ для сертификата
+     *
+     * @return bool
+     */
+    public function HasPrivateKey(): bool {}
+    
     /**
- * Возвращает расширение ExtendedKeyUsage.
- *
- * @return CPExtendedKeyUsage
- */
-public function ExtendedKeyUsage() {}
+     * Является ли сертификат валидным
+     *
+     * @return CPCertificatestat
+     */
+    public function IsValid(): CPCertificatestat {}
+    
     /**
- * Возвращает информацию о связке с закрытым ключом.
- *
- * @return CPPrivateKey
- */
-public function FindPrivateKey() {}
+     * Возвращает объект ExtendedKeyUsage для данного сертификата
+     *
+     * @return exCPKeyUsage
+     */
+    public function ExtendedKeyUsage(): exCPKeyUsage {}
+    
     /**
- * Возвращает значение свойства IssuerName.
- *
- * @return mixed
- */
-public function get_IssuerName() {}
+     * Возвращает объект KeyUsage для данного сертификата
+     *
+     * @return CPKeyUsage
+     */
+    public function KeyUsage(): CPKeyUsage {}
+    
     /**
- * Возвращает значение свойства SerialNumber.
- *
- * @return mixed
- */
-public function get_SerialNumber() {}
+     * Экспортирует сертификат в виде закодированной строки
+     *
+     * @param int $type
+     * @return string
+     */
+    public function Export(int $type): string {}
+    
     /**
- * Возвращает значение свойства SubjectName.
- *
- * @return mixed
- */
-public function get_SubjectName() {}
+     * Импортирует сертификат из закодированной строки
+     *
+     * @param string $str
+     * @return void
+     */
+    public function Import(string $str): void {}
+    
     /**
- * Возвращает значение свойства Thumbprint.
- *
- * @return mixed
- */
-public function get_Thumbprint() {}
+     * Серийный номер
+     *
+     * @return string
+     */
+    public function get_SerialNumber(): string {}
+    
     /**
- * Возвращает значение свойства ValidFromDate.
- *
- * @return mixed
- */
-public function get_ValidFromDate() {}
+     * Отпечаток
+     *
+     * @return string
+     */
+    public function get_Thumbprint(): string {}
+    
     /**
- * Возвращает значение свойства ValidToDate.
- *
- * @return mixed
- */
-public function get_ValidToDate() {}
+     * Имя субъекта
+     *
+     * @return string
+     */
+    public function get_SubjectName(): string {}
+    
     /**
- * Возвращает значение свойства Version.
- *
- * @return mixed
- */
-public function get_Version() {}
+     * Издатель сертификата
+     *
+     * @return string
+     */
+    public function get_IssuerName(): string {}
+    
     /**
- * Возвращает информацию по коду.
- *
- * @param int $infoType Код информации CERT_INFO_*.
- *
- * @return mixed
- */
-public function GetInfo(int $infoType) {}
+     * Версия сертификата
+     *
+     * @return int
+     */
+    public function get_Version(): int {}
+    
     /**
- * Проверяет наличие связанного закрытого ключа.
- *
- * @return bool
- */
-public function HasPrivateKey() {}
+     * Дата, до которой сертификат действителен
+     *
+     * @return string
+     */
+    public function get_ValidToDate(): string {}
+    
     /**
- * Импортирует сертификат из внутреннего представления.
- *
- * @return void
- */
-public function Import() {}
+     * Дата, с которой сертификат действителен
+     *
+     * @return string
+     */
+    public function get_ValidFromDate(): string {}
+    
     /**
- * Выполняет базовую проверку валидности.
- *
- * @return CPCertificateStatus
- */
-public function IsValid() {}
+     * @return CPBasicConstraints
+     */
+    public function BasicConstraints(): CPBasicConstraints {}
+    
     /**
- * Возвращает расширение KeyUsage.
- *
- * @return CPKeyUsage
- */
-public function KeyUsage() {}
+     * Возвращает объект PublicKey для данного сертификата
+     *
+     * @return CPPublicKey
+     */
+    public function PublicKey(): CPPublicKey {}
+    
     /**
- * Возвращает информацию о закрытом ключе.
- *
- * @return CPPrivateKey
- */
-public function PrivateKey() {}
-    /**
- * Возвращает информацию о открытом ключе.
- *
- * @return CPPublicKey
- */
-public function PublicKey() {}
+     * @return CPPrivateKey
+     */
+    public function PrivateKey(): CPPrivateKey {}
+    
 }
 
 /**
- * Коллекция сертификатов с поиском и доступом по индексу.
- */
-class CPCertificates {
-    /**
- * Создаёт новый экземпляр класса CPCertificates.
- *
- * @return void
- */
-public function __construct() {}
-    /**
- * Количество сертификатов в коллекции.
- *
- * @return int
- */
-public function Count() {}
-    /**
- * Ищет сертификаты по критерию.
- *
- * @param int $findType Тип поиска (CERTIFICATE_FIND_*).
- * @param mixed $criteria Критерий поиска.
- * @param bool $validOnly Если true — только действительные.
- *
- * @return CPCertificates
- */
-public function Find(int $findType, $criteria, bool $validOnly = false) {}
-    /**
- * Возвращает сертификат по индексу.
- *
- * @param int $index 1-индексация или 0-? зависит от сборки.
- *
- * @return CPCertificate
- */
-public function Item(int $index) {}
-}
-
-/**
- * Параметры и результат проверки статуса сертификата.
+ * Объект CertificateStatusОписывает статус сертификата открытого ключа. Реализует интерфейс ICPCertificateStatus. Объект данного класса нельзя создать. Данный объект возвращает метод IsValid объекта Certificate. В отличие от объекта Microsoft CAPICOM. CertificateStatus, для данного объекта реализованы только свойство **ValidationCertificates**, **ErrorStatuses**, **Result**.
  */
 class CPCertificateStatus {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPCertificateStatus.
- *
- * @return void
- */
-public function __construct() {}
+     * Является ли сертификат валидным
+     *
+     * @return int
+     */
+    public function get_Result(): int {}
+    
     /**
- * Выполняет операцию ApplicationPolicies.
- *
- * @return mixed
- */
-public function ApplicationPolicies() {}
+     * @return int
+     */
+    public function get_CheckFlag(): int {}
+    
     /**
- * Выполняет операцию CertificatePolicies.
- *
- * @return mixed
- */
-public function CertificatePolicies() {}
+     * @param int $flag
+     * @return void
+     */
+    public function set_CheckFlag(int $flag): void {}
+    
     /**
- * Выполняет операцию EKU.
- *
- * @return mixed
- */
-public function EKU() {}
+     * @return eCPKeyUsage
+     */
+    public function EKU(): eCPKeyUsage {}
+    
     /**
- * Возвращает значение свойства CheckFlag.
- *
- * @return mixed
- */
-public function get_CheckFlag() {}
+     * @return string
+     */
+    public function get_VerificationTime(): string {}
+    
     /**
- * Возвращает значение свойства Result.
- *
- * @return mixed
- */
-public function get_Result() {}
+     * @param string $str
+     * @return void
+     */
+    public function set_VerificationTime(string $str): void {}
+    
     /**
- * Возвращает значение свойства UrlRetrievalTimeout.
- *
- * @return mixed
- */
-public function get_UrlRetrievalTimeout() {}
+     * @return int
+     */
+    public function get_UrlRetrievalTimeout(): int {}
+    
     /**
- * Возвращает значение свойства ValidationCertificates.
- *
- * @return mixed
- */
-public function get_ValidationCertificates() {}
+     * @param int $urt
+     * @return void
+     */
+    public function set_UrlRetrievalTimeout(int $urt): void {}
+    
     /**
- * Возвращает значение свойства VerificationTime.
- *
- * @return mixed
- */
-public function get_VerificationTime() {}
+     * @return string
+     */
+    public function CertificatePolicies(): string {}
+    
     /**
- * Устанавливает значение свойства CheckFlag.
- *
- * @param mixed $value Новое значение.
- *
- * @return void
- */
-public function set_CheckFlag($value) {}
+     * @return string
+     */
+    public function ApplicationPolicies(): string {}
+    
     /**
- * Устанавливает значение свойства UrlRetrievalTimeout.
- *
- * @param mixed $value Новое значение.
- *
- * @return void
- */
-public function set_UrlRetrievalTimeout($value) {}
-    /**
- * Устанавливает значение свойства VerificationTime.
- *
- * @param mixed $value Новое значение.
- *
- * @return void
- */
-public function set_VerificationTime($value) {}
+     * @return CPCertificates
+     */
+    public function get_ValidationCertificates(): CPCertificates {}
+    
 }
 
 /**
- * Один OID из расширенного назначения ключа (EKU).
+ * Объект CertificatesОписывает коллекцию сертификатов. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. Certificates. Объект данного класса нельзя создать. Данный объект возвращает свойство Certificates объектов Store и CadesSignedData. В отличие от объекта Microsoft CAPICOM. Certificates, для данного объекта реализованы только следующие методы и свойства: **Find**, **Item**, **Count**. > Метод **Find** данного объекта в качестве критерия поиска может принимать дату. > При использовании CAdESCOM следует передавать тип VAR_DATE, а в КриптоПро ЭЦП Browser plug-in - объект JScript Date.
+ */
+class CPCertificates {
+    public function __construct() {}
+    
+    /**
+     * @param int $type
+     * @param mixed $query
+     * @param int $validOnly
+     * @return CPCertificates
+     */
+    public function Find(int $type, mixed $query, int $validOnly): CPCertificates {}
+    
+    /**
+     * @param int $idx
+     * @return CPCertificate
+     */
+    public function Item(int $idx): CPCertificate {}
+    
+    /**
+     * @return int
+     */
+    public function Count(): int {}
+    
+}
+
+/**
+ * Объект EKUОписывает расширение EKU сертификата. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. EKU. Объект данного класса нельзя создать. Данный объект является членом коллекции EKUs.
  */
 class CPEKU {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPEKU.
- *
- * @return void
- */
-public function __construct() {}
+     * @return int
+     */
+    public function get_Name(): int {}
+    
     /**
- * Возвращает значение свойства Name.
- *
- * @return mixed
- */
-public function get_Name() {}
+     * @param int $name
+     * @return void
+     */
+    public function set_Name(int $name): void {}
+    
     /**
- * Возвращает значение свойства OID.
- *
- * @return mixed
- */
-public function get_OID() {}
+     * Возвращает или устанавливает строку, содержащую объектный идентификатор EKU
+     *
+     * @return string
+     */
+    public function get_OID(): string {}
+    
     /**
- * Устанавливает значение свойства Name.
- *
- * @param string $name Параметр name.
- *
- * @return void
- */
-public function set_Name(string $name) {}
-    /**
- * Устанавливает значение свойства OID.
- *
- * @param string $oid Параметр oid.
- *
- * @return void
- */
-public function set_OID(string $oid) {}
+     * Возвращает или устанавливает строку, содержащую объектный идентификатор EKU
+     *
+     * @param string $oID
+     * @return void
+     */
+    public function set_OID(string $oID): void {}
+    
 }
 
 /**
- * Коллекция OID из расширенного назначения ключа (EKU).
+ * Объект EKUsОписывает коллекцию расширений EKU сертификата. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. EKUs. Объект данного класса нельзя создать. Данный объект возвращает свойство EKUs объекта ExtendedKeyUsage.
  */
 class CPEKUs {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPEKUs.
- *
- * @return void
- */
-public function __construct() {}
+     * @param object $item
+     * @return void
+     */
+    public function Add(object $item): void {}
+    
     /**
- * Добавляет элемент в коллекцию.
- *
- * @param CPEKU $eku Параметр eku.
- *
- * @return void
- */
-public function Add(CPEKU $eku) {}
+     * Возвращает количество EKU в коллекции
+     *
+     * @return int
+     */
+    public function get_Count(): int {}
+    
     /**
- * Очищает коллекцию.
- *
- * @return void
- */
-public function Clear() {}
+     * Возвращает EKU с заданным индексом
+     *
+     * @param int $idx
+     * @return object
+     */
+    public function get_Item(int $idx): object {}
+    
     /**
- * Возвращает значение свойства Count.
- *
- * @return mixed
- */
-public function get_Count() {}
+     * @return void
+     */
+    public function Clear(): void {}
+    
     /**
- * Возвращает значение свойства Item.
- *
- * @param int $index Параметр index.
- *
- * @return mixed
- */
-public function get_Item(int $index) {}
-    /**
- * Удаляет элемент из коллекции.
- *
- * @param int $index Индекс удаляемого элемента.
- *
- * @return void
- */
-public function Remove(int $index) {}
+     * @param int $idx
+     * @return void
+     */
+    public function Remove(int $idx): void {}
+    
 }
 
 /**
- * Двоичные данные, представленные в закодированном виде.
+ * Объект EncodedDataОписывает закодированный блок данных. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. EncodedData. Объект данного класса нельзя создать. Данный объект возвращают свойства EncodedKey и EncodedParameters объекта PublicKey. В отличие от объекта Microsoft CAPICOM. EncodedData, для данного объекта реализованы только свойство **Value** и метод **Format**. В асинхронной версии плагина свойство **Value** реализовано как метод. На вход аргументом может передан тип кодировки, который следует использовать при кодировании возвращаемого значения. Аргумент должен иметь значение типа CAPICOM_ENCODING_TYPE. По умолчанию используется CAPICOM_ENCODE_BASE64. Метод **Format** не реализован на *nix платформах. > Свойство **Value** в КриптоПро ЭЦП Browser plug-in не поддерживает кодировку CAPICOM_ENCODE_BINARY. См. Особенности работы с бинарными данными.
  */
 class CPEncodedData {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPEncodedData.
- *
- * @return void
- */
-public function __construct() {}
+     * @param int $mL
+     * @return string
+     */
+    public function Format(int $mL): string {}
+    
     /**
- * Форматирует данные согласно указанному типу.
- *
- * @param int $formatType Тип формата.
- *
- * @return string
- */
-public function Format(int $formatType) {}
-    /**
- * Возвращает значение свойства Value.
- *
- * @return mixed
- */
-public function get_Value() {}
+     * @param int $type
+     * @return string
+     */
+    public function get_Value(int $type): string {}
+    
 }
 
 /**
- * Сообщение CMS EnvelopedData (шифрование для получателей).
+ * Объект CPEnvelopedDataЗашифрованное сообщение. Объект CPEnvelopedData предоставляет интерфейсы ICPEnvelopedData, ICPEnvelopedData2 и интерфейс, аналогичный интерфейсу объекта CAPICOM. EnvelopedData. В отличие от объекта CAPICOM. EnvelopedData, объект CPEnvelopedData работает с единственным алгоритмом шифрования - ГОСТ 28147-89. > Метод Encrypt в КриптоПро ЭЦП Browser plug-in не поддерживает кодировку CAPICOM_ENCODE_BINARY. См. Особенности работы с бинарными данными. Объект CPEnvelopedData может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта CPEnvelopedData: CAdESCOM. CPEnvelopedData.
  */
 class CPEnvelopedData {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPEnvelopedData.
- *
- * @return void
- */
-public function __construct() {}
+     * Данные для шифрования
+     *
+     * @return string
+     */
+    public function get_Content(): string {}
+    
     /**
- * Расшифровывает зашифрованное сообщение.
- *
- * @param string $encryptedMessage Зашифрованное сообщение (PKCS#7/CMS).
- *
- * @return string
- */
-public function Decrypt(string $encryptedMessage) {}
+     * Данные для шифрования
+     *
+     * @param string $str
+     * @return void
+     */
+    public function set_Content(string $str): void {}
+    
     /**
- * Шифрует данные для указанных получателей.
- *
- * @param int $encodingType Параметр encodingType.
- *
- * @return string
- */
-public function Encrypt(int $encodingType = 0) {}
+     * Способ кодирования данных
+     *
+     * @return int
+     */
+    public function get_ContentEncoding(): int {}
+    
     /**
- * Возвращает значение свойства Content.
- *
- * @return mixed
- */
-public function get_Content() {}
+     * Способ кодирования данных
+     *
+     * @param int $type
+     * @return void
+     */
+    public function set_ContentEncoding(int $type): void {}
+    
     /**
- * Возвращает значение свойства ContentEncoding.
- *
- * @return mixed
- */
-public function get_ContentEncoding() {}
+     * Выполняет операцию шифрования
+     *
+     * @param int $type
+     * @return string
+     */
+    public function Encrypt(int $type): string {}
+    
     /**
- * Возвращает значение свойства Recipients.
- *
- * @return mixed
- */
-public function get_Recipients() {}
+     * @param string $str
+     * @return mixed
+     */
+    public function Decrypt(string $str): mixed {}
+    
     /**
- * Задаёт открытый текст сообщения для шифрования.
- *
- * @param string $content Данные, которые будут зашифрованы.
- *
- * @return void
- */
-public function set_Content(string $content) {}
+     * @return mixed
+     */
+    public function get_Algorithm(): mixed {}
+    
     /**
- * Устанавливает кодировку содержимого.
- *
- * @param int $encoding Тип кодирования данных.
- *
- * @return void
- */
-public function set_ContentEncoding(int $encoding) {}
+     * Коллекция сертификатов, для которых выполняется шифрование
+     *
+     * @return recipients
+     */
+    public function get_Recipients(): recipients {}
+    
 }
 
 /**
- * Расширение сертификата ExtendedKeyUsage.
+ * Объект ExtendedKeyUsageОписывает расширенное использование ключа. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. ExtendedKeyUsage. Объект данного класса нельзя создать. Данный объект возвращает метод ExtendedKeyUsage объекта CPCertificate.
  */
 class CPExtendedKeyUsage {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPExtendedKeyUsage.
- *
- * @return void
- */
-public function __construct() {}
+     * Присутствует ли расширение
+     *
+     * @return int
+     */
+    public function get_IsPresent(): int {}
+    
     /**
- * Возвращает значение свойства EKUs.
- *
- * @return mixed
- */
-public function get_EKUs() {}
+     * Является ли расширение критическим
+     *
+     * @return int
+     */
+    public function get_IsCritical(): int {}
+    
     /**
- * Возвращает значение свойства IsCritical.
- *
- * @return mixed
- */
-public function get_IsCritical() {}
-    /**
- * Возвращает значение свойства IsPresent.
- *
- * @return mixed
- */
-public function get_IsPresent() {}
+     * @return eCPKeyUsage_col
+     */
+    public function get_EKUs(): eCPKeyUsage_col {}
+    
 }
 
 /**
- * Объект вычисления/хранения хеш-значения.
+ * Объект CPHashedDataХэш-значение данных. Объект HashedData предоставляет интерфейсы ICPHashedData, ICPHashedData2 и интерфейс, аналогичный интерфейсу объекта CAPICOM. HashedData. В отличие от объекта CAPICOM. HashedData, объект HashedData поддерживает алгоритм хэширования ГОСТ Р 34. 11-94 и ГОСТ Р 34. 11-2012. Объект HashedData может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта HashedData: CAdESCOM. HashedData.
  */
 class CPHashedData {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPHashedData.
- *
- * @return void
- */
-public function __construct() {}
+     * @param string $sVal
+     * @return mixed
+     */
+    public function Hash(string $sVal): mixed {}
+    
     /**
- * Возвращает значение свойства Algorithm.
- *
- * @return mixed
- */
-public function get_Algorithm() {}
+     * Позволяет проинициализировать объект готовым хэш-значением
+     *
+     * @param string $sVal
+     * @return mixed
+     */
+    public function SetHashValue(string $sVal): mixed {}
+    
     /**
- * Возвращает значение свойства DataEncoding.
- *
- * @return mixed
- */
-public function get_DataEncoding() {}
+     * Возвращает результат операции хэширования
+     *
+     * @return string
+     */
+    public function get_Value(): string {}
+    
     /**
- * Возвращает значение свойства Key.
- *
- * @return mixed
- */
-public function get_Key() {}
+     * Данные для установки ключа, используемого для вычисления HMAC
+     *
+     * @param string $val
+     * @return void
+     */
+    public function set_Key(string $val): void {}
+    
     /**
- * Возвращает вычисленный хеш.
- *
- * @return string
- */
-public function get_Value() {}
+     * Данные для установки ключа, используемого для вычисления HMAC
+     *
+     * @return string
+     */
+    public function get_Key(): string {}
+    
     /**
- * Вычисляет хеш от данных.
- *
- * @param string $data Данные, для которых вычисляется хеш.
- *
- * @return void
- */
-public function Hash(string $data) {}
+     * @param int $algorithm
+     * @return void
+     */
+    public function set_Algorithm(int $algorithm): void {}
+    
     /**
- * Выбирает алгоритм хеширования.
- *
- * @param int $algorithm Алгоритм: CADESCOM_HASH_ALGORITHM_* или GOST и т. п.
- *
- * @return void
- */
-public function set_Algorithm(int $algorithm) {}
+     * @return int
+     */
+    public function get_Algorithm(): int {}
+    
     /**
- * Задаёт кодирование входных данных.
- *
- * @param int $encoding Тип кодирования: ENCODE_BASE64, ENCODE_BINARY...
- *
- * @return void
- */
-public function set_DataEncoding(int $encoding) {}
+     * Способ кодирования данных для хэширования
+     *
+     * @param int $type
+     * @return void
+     */
+    public function set_DataEncoding(int $type): void {}
+    
     /**
- * Устанавливает ключ (для HMAC и др.).
- *
- * @param mixed $key Ключ или объект ключа.
- *
- * @return void
- */
-public function set_Key($key) {}
-    /**
- * Устанавливает готовое хеш-значение.
- *
- * @param string $hashValue Хеш-значение (строка, hex/base64).
- *
- * @return void
- */
-public function SetHashValue(string $hashValue) {}
+     * Способ кодирования данных для хэширования
+     *
+     * @return int
+     */
+    public function get_DataEncoding(): int {}
+    
 }
 
 /**
- * Расширение сертификата KeyUsage.
+ * Объект KeyUsageОписывает расширение KeyUsage сертификата. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. KeyUsage. Объект данного класса нельзя создать. Данный объект возвращает метод KeyUsage объекта CPCertificate.
  */
 class CPKeyUsage {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPKeyUsage.
- *
- * @return void
- */
-public function __construct() {}
+     * Присутствует ли расширение
+     *
+     * @return bool
+     */
+    public function get_IsPresent(): bool {}
+    
     /**
- * Возвращает значение свойства IsCritical.
- *
- * @return mixed
- */
-public function get_IsCritical() {}
+     * @return bool
+     */
+    public function get_IsCritical(): bool {}
+    
     /**
- * Возвращает значение свойства IsCRLSignEnabled.
- *
- * @return mixed
- */
-public function get_IsCRLSignEnabled() {}
+     * Установлен ли бит digitalSignature
+     *
+     * @return bool
+     */
+    public function get_IsDigitalSignatureEnabled(): bool {}
+    
     /**
- * Возвращает значение свойства IsDataEnciphermentEnabled.
- *
- * @return mixed
- */
-public function get_IsDataEnciphermentEnabled() {}
+     * Установлен ли бит nonRepudiationEnabled
+     *
+     * @return bool
+     */
+    public function get_IsNonRepudiationEnabled(): bool {}
+    
     /**
- * Возвращает значение свойства IsDecipherOnlyEnabled.
- *
- * @return mixed
- */
-public function get_IsDecipherOnlyEnabled() {}
+     * Установлен ли бит keyEncipherment
+     *
+     * @return bool
+     */
+    public function get_IsKeyEnciphermentEnabled(): bool {}
+    
     /**
- * Возвращает значение свойства IsDigitalSignatureEnabled.
- *
- * @return mixed
- */
-public function get_IsDigitalSignatureEnabled() {}
+     * Установлен ли бит dataEncipherment
+     *
+     * @return bool
+     */
+    public function get_IsDataEnciphermentEnabled(): bool {}
+    
     /**
- * Возвращает значение свойства IsEncipherOnlyEnabled.
- *
- * @return mixed
- */
-public function get_IsEncipherOnlyEnabled() {}
+     * Установлен ли бит keyAgreement
+     *
+     * @return bool
+     */
+    public function get_IsKeyAgreementEnabled(): bool {}
+    
     /**
- * Возвращает значение свойства IsKeyAgreementEnabled.
- *
- * @return mixed
- */
-public function get_IsKeyAgreementEnabled() {}
+     * Установлен ли бит keyCertSign
+     *
+     * @return bool
+     */
+    public function get_IsKeyCertSignEnabled(): bool {}
+    
     /**
- * Возвращает значение свойства IsKeyCertSignEnabled.
- *
- * @return mixed
- */
-public function get_IsKeyCertSignEnabled() {}
+     * @return bool
+     */
+    public function get_IsCRLSignEnabled(): bool {}
+    
     /**
- * Возвращает значение свойства IsKeyEnciphermentEnabled.
- *
- * @return mixed
- */
-public function get_IsKeyEnciphermentEnabled() {}
+     * Установлен ли бит encipherOnly
+     *
+     * @return bool
+     */
+    public function get_IsEncipherOnlyEnabled(): bool {}
+    
     /**
- * Возвращает значение свойства IsNonRepudiationEnabled.
- *
- * @return mixed
- */
-public function get_IsNonRepudiationEnabled() {}
-    /**
- * Возвращает значение свойства IsPresent.
- *
- * @return mixed
- */
-public function get_IsPresent() {}
+     * Установлен ли бит decipherOnly
+     *
+     * @return bool
+     */
+    public function get_IsDecipherOnlyEnabled(): bool {}
+    
 }
 
 /**
- * Объектный идентификатор (OID) с дружественным именем.
+ * Объект OIDОписывает объектный идентификатор. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. OID. Объект данного класса нельзя создать. Данный объект возвращает свойство OID объекта CPAttribute.
  */
 class CPOID {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPOID.
- *
- * @return void
- */
-public function __construct() {}
+     * Возвращает или устанавливает OID
+     *
+     * @return string
+     */
+    public function get_Value(): string {}
+    
     /**
- * Возвращает значение свойства FriendlyName.
- *
- * @return mixed
- */
-public function get_FriendlyName() {}
+     * Возвращает или устанавливает OID
+     *
+     * @param string $str
+     * @return void
+     */
+    public function set_Value(string $str): void {}
+    
     /**
- * Возвращает значение свойства Value.
- *
- * @return mixed
- */
-public function get_Value() {}
-    /**
- * Устанавливает значение свойства Value.
- *
- * @param string $value Новое значение.
- *
- * @return void
- */
-public function set_Value(string $value) {}
+     * @return string
+     */
+    public function get_FriendlyName(): string {}
+    
 }
 
 /**
- * Сведения о закрытом ключе, связанном с сертификатом.
+ * Объект PrivateKeyОписывает закрытый ключ сертификата. Обьект предоставляет интерфейс CAdESCOM. ICPPrivateKey, CAdESCOM. ICPPrivateKey2, CAdESCOM. ICPPrivateKey4 и интерфейс аналогичный интерфейсу объекта CAPICOM. PrivateKey. Объект данного класса нельзя создать. Данный объект возвращает свойство PrivateKey объекта CPCertificate. В отличие от объекта Microsoft CAPICOM. PrivateKey, для данного объекта реализованы только следующие методы и свойства: **ContainerName**, **KeySpec**, **ProviderName**, **ProviderType**, **UniqueContainerName**, **KeyPin**, **CachePin**, **ChangePin**.
  */
 class CPPrivateKey {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPPrivateKey.
- *
- * @return void
- */
-public function __construct() {}
+     * @return string
+     */
+    public function get_ContainerName(): string {}
+    
     /**
- * Возвращает значение свойства ContainerName.
- *
- * @return mixed
- */
-public function get_ContainerName() {}
+     * Возвращает уникальное имя контейнера закрытого ключа
+     *
+     * @return string
+     */
+    public function get_UniqueContainerName(): string {}
+    
     /**
- * Возвращает значение свойства KeySpec.
- *
- * @return mixed
- */
-public function get_KeySpec() {}
+     * Возвращает имя криптографического провайдера
+     *
+     * @return string
+     */
+    public function get_ProviderName(): string {}
+    
     /**
- * Возвращает значение свойства ProviderName.
- *
- * @return mixed
- */
-public function get_ProviderName() {}
+     * Возвращает тип криптографического провайдера
+     *
+     * @return int
+     */
+    public function get_ProviderType(): int {}
+    
     /**
- * Возвращает значение свойства ProviderType.
- *
- * @return mixed
- */
-public function get_ProviderType() {}
+     * @return int
+     */
+    public function get_KeySpec(): int {}
+    
     /**
- * Возвращает значение свойства UniqueContainerName.
- *
- * @return mixed
- */
-public function get_UniqueContainerName() {}
+     * @return mixed
+     */
+    public function get_UECardholderData(): mixed {}
+    
+    /**
+     * @return mixed
+     */
+    public function get_UECardWelcomeText(): mixed {}
+    
 }
 
 /**
- * Сведения об открытом ключе сертификата.
+ * Объект PublicKeyОписывает открытый ключ сертификата. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. PublicKey. Объект данного класса нельзя создать. Данный объект возвращает метод PublicKey объекта CPCertificate.
  */
 class CPPublicKey {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPPublicKey.
- *
- * @return void
- */
-public function __construct() {}
+     * @return string
+     */
+    public function get_Algorithm(): string {}
+    
     /**
- * Возвращает значение свойства Algorithm.
- *
- * @return mixed
- */
-public function get_Algorithm() {}
+     * Возвращает длину открытого ключа в битах
+     *
+     * @return int
+     */
+    public function get_Length(): int {}
+    
     /**
- * Возвращает значение свойства EncodedKey.
- *
- * @return mixed
- */
-public function get_EncodedKey() {}
+     * Возвращает значение открытого ключа
+     *
+     * @return encoded_data
+     */
+    public function get_EncodedKey(): encoded_data {}
+    
     /**
- * Возвращает значение свойства EncodedParameters.
- *
- * @return mixed
- */
-public function get_EncodedParameters() {}
-    /**
- * Возвращает значение свойства Length.
- *
- * @return mixed
- */
-public function get_Length() {}
+     * Возвращает параметры алгоритма открытого ключа
+     *
+     * @return encoded_data
+     */
+    public function get_EncodedParameters(): encoded_data {}
+    
 }
 
 /**
- * Низкоуровневые операции подписи/проверки по хешу.
+ * Объект RawSignatureЗначение электронной подписи. Объект RawSignature предоставляет интерфейс IRawSignature. Объект RawSignature может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта RawSignature: CAdESCOM. RawSignature.
  */
 class CPRawSignature {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPRawSignature.
- *
- * @return void
- */
-public function __construct() {}
+     * Проверяет значение электронной подписи на основе переданного хэш-значения
+     *
+     * @param object $zHashedData
+     * @param string $sVal
+     * @param object $val
+     * @return mixed
+     */
+    public function VerifyHash(object $zHashedData, string $sVal, object $val): mixed {}
+    
     /**
- * Выполняет операцию SignHash.
- *
- * @return mixed
- */
-public function SignHash() {}
-    /**
- * Выполняет операцию VerifyHash.
- *
- * @return mixed
- */
-public function VerifyHash() {}
+     * @param object $zHashedData
+     * @param object $zCert
+     * @return string
+     */
+    public function SignHash(object $zHashedData, object $zCert): string {}
+    
 }
 
 /**
- * Коллекция получателей для EnvelopedData.
+ * Объект RecipientsОписывает коллекцию сертификатов для шифрования. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. Recipients. Объект данного класса нельзя создать. Данный объект возвращает свойство Recipients объекта CPEnvelopedData.
  */
 class CPRecipients {
     /**
- * Добавляет сертификат получателя.
- *
- * @param CPCertificate $certificate Сертификат получателя.
- *
- * @return void
- */
-public function Add(CPCertificate $certificate) {}
+     * @param object $recipientsZval
+     * @return void
+     */
+    public function Add(object $recipientsZval): void {}
+    
     /**
- * Очищает список получателей.
- *
- * @return void
- */
-public function Clear() {}
+     * Возвращает число объектов в коллекции
+     *
+     * @return int
+     */
+    public function get_Count(): int {}
+    
     /**
- * Возвращает количество получателей.
- *
- * @return int
- */
-public function get_Count() {}
+     * Возвращает объект с заданным индексом
+     *
+     * @param int $index
+     * @return CPCertificate
+     */
+    public function get_Item(int $index): CPCertificate {}
+    
     /**
- * Возвращает получателя по индексу.
- *
- * @param int $index Индекс получателя.
- *
- * @return CPCertificate
- */
-public function get_Item(int $index) {}
+     * Удаляет все сертификаты из коллекции
+     *
+     * @return void
+     */
+    public function Clear(): void {}
+    
 }
 
-/**
- * Подписываемые данные и операции CAdES/PKCS#7.
- */
 class CPSignedData {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPSignedData.
- *
- * @return void
- */
-public function __construct() {}
+     * @param object $zSigner
+     * @param int $cadesType
+     * @param int $detached
+     * @param int $encodingType
+     * @return string
+     */
+    public function SignCades(object $zSigner, int $cadesType, int $detached, int $encodingType): string {}
+    
     /**
- * Добавляет дополнительную подпись к уже подписанным данным.
- *
- * @param CPSigner $signer Подписант для дополнительной подписи.
- * @param int $encodingType Параметр encodingType.
- *
- * @return string
- */
-public function CoSign(CPSigner $signer, int $encodingType = 0) {}
+     * @param object $zHashedData
+     * @param object $zSigner
+     * @param int $cadesType
+     * @param int $encodingType
+     * @return string
+     */
+    public function SignHash(object $zHashedData, object $zSigner, int $cadesType, int $encodingType): string {}
+    
     /**
- * Добавляет дополнительную CAdES-подпись указанного типа.
- *
- * @param CPSigner $signer Подписант для дополнительной подписи.
- * @param int $cadesType Тип CAdES: CADES_BES, CADES_T...
- * @param int $encodingType Параметр encodingType.
- *
- * @return string
- */
-public function CoSignCades(CPSigner $signer, int $cadesType, int $encodingType = 0) {}
+     * @param object $zSigner
+     * @param int $detached
+     * @param int $encodingType
+     * @return string
+     */
+    public function Sign(object $zSigner, int $detached, int $encodingType): string {}
+    
     /**
- * Добавляет подпись по заранее вычисленному хешу.
- *
- * @param CPSigner $signer Подписант для дополнительной подписи.
- * @param CPHashedData $hashedData Параметр hashedData.
- * @param int $cadesType Параметр cadesType.
- * @param int $encodingType Параметр encodingType.
- *
- * @return string
- */
-public function CoSignHash(CPSigner $signer, CPHashedData $hashedData, int $cadesType, int $encodingType = 0) {}
+     * @param object $zSigner
+     * @param int $encodingType
+     * @return string
+     */
+    public function CoSign(object $zSigner, int $encodingType): string {}
+    
     /**
- * Усиливает подпись до указанного уровня CAdES.
- *
- * @param int $cadesType Желаемый уровень CAdES.
- * @param string $tsaAddress Параметр tsaAddress.
- * @param int $encodingType Параметр encodingType.
- *
- * @return string
- */
-public function EnhanceCades(int $cadesType, string $tsaAddress, int $encodingType = 0) {}
+     * @param object $zSigner
+     * @param int $cadesType
+     * @param int $encodingType
+     * @return string
+     */
+    public function CoSignCades(object $zSigner, int $cadesType, int $encodingType): string {}
+    
     /**
- * Возвращает сертификаты из подписи.
- *
- * @return CPCertificates
- */
-public function get_Certificates() {}
+     * @param object $zSigner
+     * @param object $zHashedData
+     * @param int $cadesType
+     * @param int $encodingType
+     * @return string
+     */
+    public function CoSignHash(object $zSigner, object $zHashedData, int $cadesType, int $encodingType): string {}
+    
     /**
- * Возвращает текущее содержимое для подписи.
- *
- * @return string
- */
-public function get_Content() {}
+     * @param int $cadesType
+     * @param string $tSAAddress
+     * @param int $addressLen
+     * @return string
+     */
+    public function EnhanceCades(int $cadesType, string $tSAAddress, int $addressLen): string {}
+    
     /**
- * Возвращает текущий тип кодирования содержимого.
- *
- * @return int
- */
-public function get_ContentEncoding() {}
+     * @param string $sSignedMessage
+     * @param ?int $signedMessage
+     * @param ?int $cadesType
+     * @return mixed
+     */
+    public function VerifyCades(string $sSignedMessage, ?int $signedMessage = null, ?int $cadesType = null): mixed {}
+    
     /**
- * Возвращает коллекцию подписантов.
- *
- * @return CPSigners
- */
-public function get_Signers() {}
+     * @param object $zHashedData
+     * @param string $sSignedMessage
+     * @param ?int $signedMessage
+     * @return mixed
+     */
+    public function VerifyHash(object $zHashedData, string $sSignedMessage, ?int $signedMessage = null): mixed {}
+    
     /**
- * Устанавливает содержимое, которое будет подписано.
- *
- * @param string $content Данные для подписи (строка).
- *
- * @return void
- */
-public function set_Content(string $content) {}
+     * @param string $sSignedMessage
+     * @param int $signedMessage
+     * @param int $detached
+     * @return mixed
+     */
+    public function Verify(string $sSignedMessage, int $signedMessage, int $detached): mixed {}
+    
     /**
- * Задаёт кодировку содержимого.
- *
- * @param int $encoding Тип кодирования данных: ENCODE_BASE64, ENCODE_BINARY и т. п.
- *
- * @return void
- */
-public function set_ContentEncoding(int $encoding) {}
+     * @param int $type
+     * @return void
+     */
+    public function set_ContentEncoding(int $type): void {}
+    
     /**
- * Создаёт подпись PKCS#7 (CMS) над содержимым.
- *
- * @param CPSigner $signer Подписант и его параметры.
- * @param bool $detached Если true — создаётся отсоединённая подпись.
- * @param int $encodingType Параметр encodingType.
- *
- * @return string
- */
-public function Sign(CPSigner $signer, bool $detached = false, int $encodingType = 0) {}
+     * @return int
+     */
+    public function get_ContentEncoding(): int {}
+    
     /**
- * Создаёт подпись CAdES указанного типа.
- *
- * @param CPSigner $signer Подписант и его параметры.
- * @param int $cadesType Тип CAdES: CADES_BES, CADES_T, CADES_X_LONG_TYPE_1.
- * @param bool $detached Если true — отсоединённая подпись.
- * @param int $encodingType Параметр encodingType.
- *
- * @return string
- */
-public function SignCades(CPSigner $signer, int $cadesType, bool $detached = false, int $encodingType = 0) {}
+     * @param string $sVal
+     * @return void
+     */
+    public function set_Content(string $sVal): void {}
+    
     /**
- * Создаёт подпись по заранее вычисленному хешу.
- *
- * @param CPHashedData $hashedData Параметр hashedData.
- * @param CPSigner $signer Подписант и его параметры.
- * @param int $cadesType Параметр cadesType.
- * @param int $encodingType Параметр encodingType.
- *
- * @return string
- */
-public function SignHash(CPHashedData $hashedData, CPSigner $signer, int $cadesType, int $encodingType = 0) {}
+     * @return string
+     */
+    public function get_Content(): string {}
+    
     /**
- * Проверяет подпись PKCS#7 (CMS).
- *
- * @param string $signedMessage Подписанное сообщение (PKCS#7).
- * @param bool $detached Если true — проверяется отсоединённая подпись.
- * @param int $verifyFlag Параметр verifyFlag.
- *
- * @return bool
- */
-public function Verify(string $signedMessage, bool $detached = false, int $verifyFlag = 0) {}
+     * @return signers
+     */
+    public function get_Signers(): signers {}
+    
     /**
- * Проверяет подпись CAdES указанного типа.
- *
- * @param string $signedMessage Подписанное сообщение (PKCS#7/CAdES).
- * @param int $cadesType Тип CAdES для проверки.
- * @param bool $detached Если true — проверяется отсоединённая подпись.
- *
- * @return bool
- */
-public function VerifyCades(string $signedMessage, int $cadesType = 0, bool $detached = false) {}
-    /**
- * Проверяет подпись по ранее вычисленному хешу.
- *
- * @param CPHashedData $hashedData Параметр hashedData.
- * @param string $signedMessage Подписанное сообщение (PKCS#7).
- * @param int $cadesType Параметр cadesType.
- *
- * @return bool
- */
-public function VerifyHash(CPHashedData $hashedData, string $signedMessage, int $cadesType = 0) {}
+     * @return CPCertificates
+     */
+    public function get_Certificates(): CPCertificates {}
+    
 }
 
 /**
- * Подпись XML (XMLDSIG) и проверка подписи.
+ * Объект SignedXMLПодписанный документ XML. Объект SignedXML предоставляет интерфейс ISignedXML. Объект SignedXML может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта SignedXML: CAdESCOM. SignedXML.
  */
 class CPSignedXML {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPSignedXML.
- *
- * @return void
- */
-public function __construct() {}
+     * @param string $str
+     * @return void
+     */
+    public function set_Content(string $str): void {}
+    
     /**
- * Возвращает значение свойства Content.
- *
- * @return mixed
- */
-public function get_Content() {}
+     * @return string
+     */
+    public function get_Content(): string {}
+    
     /**
- * Возвращает значение свойства Signers.
- *
- * @return mixed
- */
-public function get_Signers() {}
+     * Тип подписи
+     *
+     * @param int $ltype
+     * @return void
+     */
+    public function set_SignatureType(int $ltype): void {}
+    
     /**
- * Задаёт XML-документ для подписи.
- *
- * @param string $xml XML-строка.
- *
- * @return void
- */
-public function set_Content(string $xml) {}
+     * Uniform Resource Identifier (URI) алгоритма хэширования
+     *
+     * @param string $str
+     * @return void
+     */
+    public function set_DigestMethod(string $str): void {}
+    
     /**
- * Устанавливает алгоритм хеширования для XML-подписи.
- *
- * @param string $algorithm URI/имя алгоритма (например, GOST, SHA256).
- *
- * @return void
- */
-public function set_DigestMethod(string $algorithm) {}
+     * Uniform Resource Identifier (URI) алгоритма подписи
+     *
+     * @param string $str
+     * @return void
+     */
+    public function set_SignatureMethod(string $str): void {}
+    
     /**
- * Устанавливает алгоритм подписи для XML.
- *
- * @param string $algorithm URI/имя алгоритма подписи.
- *
- * @return void
- */
-public function set_SignatureMethod(string $algorithm) {}
+     * Коллекция подписей
+     *
+     * @return signers
+     */
+    public function get_Signers(): signers {}
+    
     /**
- * Выбирает тип XML-подписи.
- *
- * @param int $type Тип подписи: XML_SIGNATURE_TYPE_ENVELOPED, ENVELOPING, TEMPLATE.
- *
- * @return void
- */
-public function set_SignatureType(int $type) {}
+     * @param object $zsignedXml
+     * @param string $dataStr
+     * @return string
+     */
+    public function Sign(object $zsignedXml, string $dataStr): string {}
+    
     /**
- * Создаёт XML-подпись.
- *
- * @param CPSigner $signer Подписант и его параметры.
- *
- * @return string
- */
-public function Sign(CPSigner $signer) {}
-    /**
- * Проверяет XML-подпись.
- *
- * @return bool
- */
-public function Verify() {}
+     * Проверяет подпись под документом XML
+     *
+     * @param string $strMes
+     * @param string $strPath
+     * @return mixed
+     */
+    public function Verify(string $strMes, string $strPath): mixed {}
+    
 }
 
 /**
- * Настройки подписанта и атрибуты подписи.
+ * Объект CPSignerОбъект, задающий параметры создания и содержащий информацию об усовершенствованной подписи. Объект CPSigner предоставляет интерфейсы ICPSigner6, ICPSigner5, ICPSigner4, ICPSigner3, ICPSigner2, ICPSigner и интерфейс, аналогичный CAPICOM. Signer. Объект CPSigner может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта CPSigner: CAdESCOM. CPSigner.
  */
 class CPSigner {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPSigner.
- *
- * @return void
- */
-public function __construct() {}
+     * Сертификат подписанта
+     *
+     * @return CPCertificate
+     */
+    public function get_Certificate(): CPCertificate {}
+    
     /**
- * Возвращает значение свойства AuthenticatedAttributes.
- *
- * @return mixed
- */
-public function get_AuthenticatedAttributes() {}
+     * Сертификат подписанта
+     *
+     * @param object $cert
+     * @return void
+     */
+    public function set_Certificate(object $cert): void {}
+    
     /**
- * Возвращает текущий сертификат подписанта.
- *
- * @return CPCertificate
- */
-public function get_Certificate() {}
+     * Параметры сертификата подписанта
+     *
+     * @return int
+     */
+    public function get_Options(): int {}
+    
     /**
- * Возвращает значение свойства CRLs.
- *
- * @return mixed
- */
-public function get_CRLs() {}
+     * Параметры сертификата подписанта
+     *
+     * @param int $opt
+     * @return void
+     */
+    public function set_Options(int $opt): void {}
+    
     /**
- * Возвращает значение свойства OCSPResponses.
- *
- * @return mixed
- */
-public function get_OCSPResponses() {}
+     * @return CPAttributes_col
+     */
+    public function get_AuthenticatedAttributes(): CPAttributes_col {}
+    
     /**
- * Возвращает значение свойства Options.
- *
- * @return mixed
- */
-public function get_Options() {}
+     * Коллекция неподписанных атрибутов
+     *
+     * @return CPAttributes_col
+     */
+    public function get_UnauthenticatedAttributes(): CPAttributes_col {}
+    
     /**
- * Возвращает значение свойства SignatureTimeStampTime.
- *
- * @return mixed
- */
-public function get_SignatureTimeStampTime() {}
+     * Адрес службы штампов времени
+     *
+     * @return string
+     */
+    public function get_TSAAddress(): string {}
+    
     /**
- * Возвращает значение свойства SigningTime.
- *
- * @return mixed
- */
-public function get_SigningTime() {}
+     * Адрес службы штампов времени
+     *
+     * @param string $str
+     * @return void
+     */
+    public function set_TSAAddress(string $str): void {}
+    
     /**
- * Возвращает значение свойства TSAAddress.
- *
- * @return mixed
- */
-public function get_TSAAddress() {}
+     * Коллекция СОС
+     *
+     * @return mixed
+     */
+    public function get_CRLs(): mixed {}
+    
     /**
- * Возвращает значение свойства UnauthenticatedAttributes.
- *
- * @return mixed
- */
-public function get_UnauthenticatedAttributes() {}
+     * Коллекция ответов служб актуальных статусов
+     *
+     * @return mixed
+     */
+    public function get_OCSPResponses(): mixed {}
+    
     /**
- * Назначает сертификат, которым будет выполняться подпись.
- *
- * @param CPCertificate $certificate Сертификат подписанта.
- *
- * @return void
- */
-public function set_Certificate(CPCertificate $certificate) {}
+     * Время подписи из атрибута signingTime
+     *
+     * @return string
+     */
+    public function get_SigningTime(): string {}
+    
     /**
- * Задаёт PIN-код (пароль) для доступа к закрытому ключу.
- *
- * @param string $pin PIN/пароль.
- *
- * @return void
- */
-public function set_KeyPin(string $pin) {}
+     * Время подписи из штампа времени на значение подписи
+     *
+     * @return string
+     */
+    public function get_SignatureTimeStampTime(): string {}
+    
     /**
- * Устанавливает флаги/опции подписи.
- *
- * @param int $options Битовая маска опций.
- *
- * @return void
- */
-public function set_Options(int $options) {}
-    /**
- * Указывает адрес службы меток времени (TSA).
- *
- * @param string $url URL TSA.
- *
- * @return void
- */
-public function set_TSAAddress(string $url) {}
+     * Пин-код для доступа к закрытому ключу
+     *
+     * @param string $str
+     * @return void
+     */
+    public function set_KeyPin(string $str): void {}
+    
 }
 
 /**
- * Коллекция подписантов из подписи.
+ * Объект CPSignersКоллекция объектов CPSigner. Объект CPSigners предоставляет интерфейс аналогичный CAPICOM. Signers. Объект данного класса нельзя создать. Данный объект возвращает свойство Signers объекта CadesSignedData.
  */
 class CPSigners {
     /**
- * Возвращает значение свойства Count.
- *
- * @return mixed
- */
-public function get_Count() {}
+     * Возвращает количество объектов Signer в коллекции
+     *
+     * @return int
+     */
+    public function get_Count(): int {}
+    
     /**
- * Возвращает значение свойства Item.
- *
- * @param int $index Параметр index.
- *
- * @return mixed
- */
-public function get_Item(int $index) {}
+     * Возвращает объект Signer с заданным индексом
+     *
+     * @param int $index
+     * @return signer
+     */
+    public function get_Item(int $index): signer {}
+    
 }
 
 /**
- * Хранилище сертификатов.
+ * Объект StoreОписывает хранилище сертификатов. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. Store, а интерфейсы ICPStore2 и IEventSource. В отличие от объекта Microsoft CAPICOM. Store, для данного объекта реализованы только следующие методы и свойства: **Open**, **Close**, **Certificates**, **Location**, **Name**, **Add**, **Remove**. В методе **Open** для параметра Location поддерживаются только значения CAPICOM_CURRENT_USER_STORE, CAPICOM_LOCAL_MACHINE_STORE, CAPICOM_MEMORY_STORE, CAPICOM_SMART_CARD_USER_STORE, CADESCOM_CONTAINER_STORE. Параметр CADESCOM_CONTAINER_STORE предназачен для перечисления всех сертификатов со связанным контейнером закрытого ключа. Работа с хранилищем CAPICOM_SMART_CARD_USER_STORE поддерживается только с КриптоПро CSP 5. 0. 11823 и выше. Метод **Add** поддерживается для хранилищ Root, CA и AddressBook (CA, AddressBook в версиях плагина 2. 0. 15400+) раздела CAPICOM_CURRENT_USER_STORE, а для хранилища типа CADESCOM_MEMORY_STORE.
  */
 class CPStore {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса CPStore.
- *
- * @return void
- */
-public function __construct() {}
+     * Открывает хранилище сертификатов
+     *
+     * @param int $location
+     * @param string $name
+     * @param int $mode
+     * @return mixed
+     */
+    public function Open(int $location, string $name, int $mode): mixed {}
+    
     /**
- * Закрывает хранилище сертификатов.
- *
- * @return void
- */
-public function Close() {}
+     * Закрывает хранилище сертификатов
+     *
+     * @return mixed
+     */
+    public function Close(): mixed {}
+    
     /**
- * Возвращает коллекцию сертификатов хранилища.
- *
- * @return CPCertificates
- */
-public function get_Certificates() {}
+     * @return CPCertificates
+     */
+    public function get_Certificates(): CPCertificates {}
+    
     /**
- * Возвращает значение свойства Location.
- *
- * @return mixed
- */
-public function get_Location() {}
+     * Возвращает расположение хранилища сертификатов
+     *
+     * @return int
+     */
+    public function get_Location(): int {}
+    
     /**
- * Возвращает значение свойства Name.
- *
- * @return mixed
- */
-public function get_Name() {}
-    /**
- * Открывает хранилище сертификатов.
- *
- * @param int $location Расположение хранилища (CURRENT_USER_STORE, LOCAL_MACHINE_STORE и т. п.).
- * @param string $name Имя хранилища (например, "My").
- * @param int $mode Режим открытия (STORE_OPEN_*)
- *
- * @return void
- */
-public function Open(int $location, string $name, int $mode) {}
+     * Возвращает имя хранилища
+     *
+     * @return string
+     */
+    public function get_Name(): string {}
+    
 }
 
-/**
- * Симметричный алгоритм шифрования (ключ, IV, операции).
- */
 class SymmetricAlgorithm {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса SymmetricAlgorithm.
- *
- * @return void
- */
-public function __construct() {}
+     * @return string
+     */
+    public function get_DiversData(): string {}
+    
     /**
- * Выполняет операцию Decrypt.
- *
- * @param string $encryptedData Параметр encryptedData.
- *
- * @return mixed
- */
-public function Decrypt(string $encryptedData) {}
+     * @param string $str
+     * @return void
+     */
+    public function set_DiversData(string $str): void {}
+    
     /**
- * Выполняет операцию DiversifyKey.
- *
- * @param string $diversifier Параметр diversifier.
- *
- * @return mixed
- */
-public function DiversifyKey(string $diversifier) {}
+     * @return string
+     */
+    public function get_IV(): string {}
+    
     /**
- * Выполняет операцию Encrypt.
- *
- * @param string $data Параметр data.
- *
- * @return mixed
- */
-public function Encrypt(string $data) {}
+     * @param string $str
+     * @return void
+     */
+    public function set_IV(string $str): void {}
+    
     /**
- * Выполняет операцию ExportKey.
- *
- * @param mixed $options Параметр options.
- *
- * @return mixed
- */
-public function ExportKey($options = null) {}
+     * @param string $str
+     * @param int $isFinal
+     * @return string
+     */
+    public function Encrypt(string $str, int $isFinal): string {}
+    
     /**
- * Выполняет операцию GenerateKey.
- *
- * @return mixed
- */
-public function GenerateKey() {}
+     * @param string $str
+     * @param ?int $isFinal
+     * @return string
+     */
+    public function Decrypt(string $str, ?int $isFinal = null): string {}
+    
     /**
- * Возвращает значение свойства DiversData.
- *
- * @return mixed
- */
-public function get_DiversData() {}
+     * @param ?int $algo
+     * @return mixed
+     */
+    public function GenerateKey(?int $algo = null): mixed {}
+    
     /**
- * Возвращает значение свойства IV.
- *
- * @return mixed
- */
-public function get_IV() {}
+     * @return symmetric_algorithm
+     */
+    public function DiversifyKey(): symmetric_algorithm {}
+    
     /**
- * Выполняет операцию ImportKey.
- *
- * @param string $blob Параметр blob.
- *
- * @return mixed
- */
-public function ImportKey(string $blob) {}
+     * @param string $dataStr
+     * @param object $ldataStr
+     * @param ?string $zRecipient
+     * @return mixed
+     */
+    public function ImportKey(string $dataStr, object $ldataStr, ?string $zRecipient = null): mixed {}
+    
     /**
- * Устанавливает значение свойства DiversData.
- *
- * @param string $data Параметр data.
- *
- * @return void
- */
-public function set_DiversData(string $data) {}
-    /**
- * Устанавливает значение свойства IV.
- *
- * @param string $iv Параметр iv.
- *
- * @return void
- */
-public function set_IV(string $iv) {}
+     * @param object $zRecipient
+     * @return string
+     */
+    public function ExportKey(object $zRecipient): string {}
+    
 }
 
-/**
- * Версия библиотеки/плагина.
- */
 class Version {
+    public function __construct() {}
+    
     /**
- * Создаёт новый экземпляр класса Version.
- *
- * @return void
- */
-public function __construct() {}
+     * @return int
+     */
+    public function get_MajorVersion(): int {}
+    
     /**
- * Возвращает значение свойства BuildVersion.
- *
- * @return mixed
- */
-public function get_BuildVersion() {}
+     * @return int
+     */
+    public function get_MinorVersion(): int {}
+    
     /**
- * Возвращает значение свойства MajorVersion.
- *
- * @return mixed
- */
-public function get_MajorVersion() {}
+     * @return int
+     */
+    public function get_BuildVersion(): int {}
+    
     /**
- * Возвращает значение свойства MinorVersion.
- *
- * @return mixed
- */
-public function get_MinorVersion() {}
-    /**
- * Выполняет операцию toString.
- *
- * @return mixed
- */
-public function toString() {}
+     * @return string
+     */
+    public function toString(): string {}
+    
 }
+

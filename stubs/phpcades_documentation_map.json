@@ -1,0 +1,1308 @@
+{
+  "About": {
+    "description": "Объект AboutВерсия библиотеки. Объект About предоставляет интерфейс IAbout, IAbout3, IAbout4, IAbout5. Объект About может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта About: CAdESCOM. About.",
+    "methods": {
+      "CSPName": {
+        "description": "Возвращает наименование криптопровайдера (CSP)"
+      },
+      "MediaFilter": {
+        "description": "Устанавливает разрешенные виды медиа (PP_MEDIA_TYPE)"
+      },
+      "ReaderFilter": {
+        "description": "Устанавливает разрешенные виды носителей и разрешенные операции для запрещенных носителей (PP_CARRIER_TYPES)"
+      }
+    },
+    "properties": {
+      "MajorVersion": {
+        "description": "Возвращает старший компонент версии"
+      },
+      "MinorVersion": {
+        "description": "Возвращает младший компонент версии"
+      },
+      "Version": {
+        "description": "Возвращает строковое представление версии"
+      },
+      "PluginVersion": {
+        "description": "Возвращает объект IVersion c версией плагина"
+      }
+    }
+  },
+  "CPAlgorithm": {
+    "description": "Объект AlgorithmОписывает алгоритм шифрования. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. Algorithm. В отличие от объекта Microsoft CAPICOM. Algorithm, свойство Name данного объекта доступно только для чтения. Объект данного класса нельзя создать. Данный объект возвращает свойство Algorithm объекта CPEnvelopedData.",
+    "methods": {
+      "get_Name": {
+        "description": "Возвращает алгоритм подписи или шифрования",
+        "parameters": [],
+        "return_type": "int"
+      },
+      "set_Name": {
+        "description": "Устанавливает алгоритм подписи или шифрования",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "int",
+            "description": "Алгоритм подписи или шифрования"
+          }
+        ],
+        "return_type": "void"
+      },
+      "get_KeyLength": {
+        "description": "Возвращает длину ключа",
+        "parameters": [],
+        "return_type": "int"
+      },
+      "set_KeyLength": {
+        "description": "Устанавливает длину ключа",
+        "parameters": [
+          {
+            "name": "len",
+            "type": "int",
+            "description": "Длина ключа"
+          }
+        ],
+        "return_type": "void"
+      }
+    },
+    "properties": {
+      "Name": {
+        "description": "Возвращает алгоритм подписи или шифрования"
+      },
+      "KeyLength": {
+        "description": "Длина ключа"
+      }
+    }
+  },
+  "CPBasicConstraints": {
+    "description": "Объект BasicConstraintsОписывает основные ограничения на использование сертификата. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. BasicConstraints. Объект данного класса нельзя создать. Данный объект возвращает метод BasicConstraints объекта Certificate.",
+    "methods": [],
+    "properties": {
+      "IsCritical": {
+        "description": "Является ли расширение критическим"
+      },
+      "IsPathLenConstraintPresent": {
+        "description": "Существует ли ограничение на длину пути сертификата"
+      },
+      "IsPresent": {
+        "description": "Присутствует ли расширение"
+      },
+      "PathLenConstraint": {
+        "description": "Ограничение на длину пути"
+      }
+    }
+  },
+  "CPCardholderData": {
+    "description": "Объект CPCardholderData содержит данные держателя карты. Объект предоставляет методы для получения персональных данных с карты.",
+    "methods": {
+      "get_SocialAccountNumber": {
+        "description": "Возвращает номер социального счета",
+        "parameters": [],
+        "return_type": "string"
+      },
+      "get_OMSNumber": {
+        "description": "Возвращает номер полиса ОМС",
+        "parameters": [],
+        "return_type": "string"
+      },
+      "get_Name": {
+        "description": "Возвращает полное имя держателя карты",
+        "parameters": [],
+        "return_type": "string"
+      },
+      "get_FirstName": {
+        "description": "Возвращает имя держателя карты",
+        "parameters": [],
+        "return_type": "string"
+      },
+      "get_LastName": {
+        "description": "Возвращает фамилию держателя карты",
+        "parameters": [],
+        "return_type": "string"
+      },
+      "get_SecondName": {
+        "description": "Возвращает отчество держателя карты",
+        "parameters": [],
+        "return_type": "string"
+      },
+      "get_CardIssuerAddress": {
+        "description": "Возвращает адрес издателя карты",
+        "parameters": [],
+        "return_type": "string"
+      },
+      "get_DateOfBirth": {
+        "description": "Возвращает дату рождения держателя карты",
+        "parameters": [],
+        "return_type": "string"
+      },
+      "get_PlaceOfBirth": {
+        "description": "Возвращает место рождения держателя карты",
+        "parameters": [],
+        "return_type": "string"
+      },
+      "get_SexString": {
+        "description": "Возвращает пол держателя карты в виде строки",
+        "parameters": [],
+        "return_type": "string"
+      },
+      "get_Sex": {
+        "description": "Возвращает пол держателя карты в числовом виде",
+        "parameters": [],
+        "return_type": "int"
+      }
+    },
+    "properties": {
+      "SocialAccountNumber": {
+        "description": "Номер социального счета"
+      },
+      "OMSNumber": {
+        "description": "Номер полиса ОМС"
+      },
+      "Name": {
+        "description": "Полное имя держателя карты"
+      },
+      "FirstName": {
+        "description": "Имя держателя карты"
+      },
+      "LastName": {
+        "description": "Фамилия держателя карты"
+      },
+      "SecondName": {
+        "description": "Отчество держателя карты"
+      },
+      "CardIssuerAddress": {
+        "description": "Адрес издателя карты"
+      },
+      "DateOfBirth": {
+        "description": "Дата рождения держателя карты"
+      },
+      "PlaceOfBirth": {
+        "description": "Место рождения держателя карты"
+      },
+      "SexString": {
+        "description": "Пол держателя карты в виде строки"
+      },
+      "Sex": {
+        "description": "Пол держателя карты в числовом виде"
+      }
+    }
+  },
+  "CPCadesSignedData": {
+    "description": "Объект CadesSignedDataУсовершенствованная подпись. Объект CadesSignedData предоставляет интерфейсы ICPSignedData, ICPSignedData2, ICPSignedData3, ICPSignedData4, ICPSignedData5, ICPSignedData6, IAdditionalStore и интерфейс, аналогичный CAPICOM. SignedData. В отличие от объекта CAPICOM. SignedData, методы **Sign**, **CoSign** и **Verify** здесь создают и проверяют усовершенствованную подпись типа CAdES-X Long Type 1. Метод AdditionalStore позволяет передать в объект дополнительное хранилище для проверки подписи. >",
+    "methods": {
+      "Sign": {
+        "description": "Создает усовершенствованную подпись типа CAdES-X Long Type 1"
+      },
+      "Verify": {
+        "description": "Выполняет проверку усовершенствованной подписи типа CAdES-X Long Type 1"
+      },
+      "Display": {
+        "description": "Отображает диалоговое окно со сведениями о подписях"
+      },
+      "CoSignCades": {
+        "description": "Добавляет к сообщению параллельную усовершенствованную подпись"
+      },
+      "EnhanceCades": {
+        "description": "Позволяет дополнить подпись до усовершенствованной"
+      },
+      "SignCades": {
+        "description": "Добавляет к сообщению усовершенствованную подпись"
+      },
+      "VerifyCades": {
+        "description": "Проверяет усовершенствованную подпись"
+      },
+      "CoSignHash": {
+        "description": "Добавляет к сообщению усовершенствованную подпись"
+      },
+      "SignHash": {
+        "description": "Создает усовершенствованную подпись"
+      },
+      "VerifyHash": {
+        "description": "Проверяет усовершенствованную подпись на основе переданного хэш-значения"
+      },
+      "AdditionalStore": {
+        "description": "Передать дополнительное хранилище для проверки подписи"
+      },
+      "GetMsgType": {
+        "description": "Возвращает максимальный тип подписи, которому удовлетворяет данная подпись"
+      },
+      "IsMsgType": {
+        "description": "Проверяет соответствие подписи заданному типу"
+      }
+    },
+    "properties": {
+      "Content": {
+        "description": "Данные для подписи"
+      },
+      "Signers": {
+        "description": "Возвращает коллекцию подписантов ContentEncoding ICPSignedData3 Способ кодирования данных для подписи"
+      },
+      "DisplayData": {
+        "description": "Расположение данных для отображения на специализированных устройствах"
+      }
+    }
+  },
+  "CPCertificates": {
+    "description": "Объект CertificatesОписывает коллекцию сертификатов. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. Certificates. Объект данного класса нельзя создать. Данный объект возвращает свойство Certificates объектов Store и CadesSignedData. В отличие от объекта Microsoft CAPICOM. Certificates, для данного объекта реализованы только следующие методы и свойства: **Find**, **Item**, **Count**. > Метод **Find** данного объекта в качестве критерия поиска может принимать дату. > При использовании CAdESCOM следует передавать тип VAR_DATE, а в КриптоПро ЭЦП Browser plug-in - объект JScript Date.",
+    "methods": [],
+    "properties": {
+      "Item": {
+        "description": "Возвращает сертификат с заданным индексом из коллекции"
+      }
+    }
+  },
+  "CPCertificateStatus": {
+    "description": "Объект CertificateStatusОписывает статус сертификата открытого ключа. Реализует интерфейс ICPCertificateStatus. Объект данного класса нельзя создать. Данный объект возвращает метод IsValid объекта Certificate. В отличие от объекта Microsoft CAPICOM. CertificateStatus, для данного объекта реализованы только свойство **ValidationCertificates**, **ErrorStatuses**, **Result**.",
+    "methods": [],
+    "properties": {
+      "ErrorStatuses": {
+        "description": "Свойство для получения значения поля dwErrorStatus структуры CERT_TRUST_STATUS для каждого из сертификатов цепочки"
+      },
+      "Result": {
+        "description": "Является ли сертификат валидным"
+      }
+    }
+  },
+  "CPAttribute": {
+    "description": "Объект CPAttributeАтрибут усовершенствованной подписи (подписанный или неподписанный). Объект CPAttribute предоставляет средства для работы с отдельным атрибутом усовершенствованной подписи. Объект CPAttribute предоставляет интерфейсы ICPAttribute и ICPAttribute2. Объект CPAttribute может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта CPAttribute: CAdESCOM. CPAttribute.",
+    "methods": {
+      "set_OID": {
+        "description": "Устанавливает объектный идентификатор атрибута",
+        "parameters": [
+          {
+            "name": "str",
+            "type": "string",
+            "description": "Объектный идентификатор"
+          }
+        ],
+        "return_type": "void"
+      },
+      "get_OID": {
+        "description": "Возвращает объектный идентификатор атрибута",
+        "parameters": [],
+        "return_type": "string"
+      },
+      "set_Value": {
+        "description": "Устанавливает закодированное значение атрибута",
+        "parameters": [
+          {
+            "name": "str",
+            "type": "string",
+            "description": "Закодированное значение атрибута"
+          }
+        ],
+        "return_type": "void"
+      },
+      "get_Value": {
+        "description": "Возвращает закодированное значение атрибута",
+        "parameters": [],
+        "return_type": "string"
+      },
+      "set_Name": {
+        "description": "Устанавливает имя атрибута",
+        "parameters": [
+          {
+            "name": "lname",
+            "type": "int",
+            "description": "Имя атрибута"
+          }
+        ],
+        "return_type": "void"
+      },
+      "get_Name": {
+        "description": "Возвращает имя атрибута",
+        "parameters": [],
+        "return_type": "int"
+      },
+      "set_ValueEncoding": {
+        "description": "Устанавливает способ кодирования значения атрибута",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "int",
+            "description": "Способ кодирования"
+          }
+        ],
+        "return_type": "void"
+      },
+      "get_ValueEncoding": {
+        "description": "Возвращает способ кодирования значения атрибута",
+        "parameters": [],
+        "return_type": "int"
+      }
+    },
+    "properties": {
+      "OID": {
+        "description": "Объектный идентификатор атрибута"
+      },
+      "Value": {
+        "description": "Возвращает закодированное значение атрибута"
+      },
+      "Name": {
+        "description": "Имя атрибута"
+      },
+      "ValueEncoding": {
+        "description": "Способ кодирования значения атрибута"
+      }
+    }
+  },
+  "CPAttributes": {
+    "description": "Объект CPAttributes = Коллекция объектов CPAttribute. Объект CPAttributes предоставляет интерфейс ICPAttributes. Объект данного класса нельзя создать. Данный объект возвращают свойства AuthenticatedAttributes2 и UnauthenticatedAttributes объекта CPSigner.",
+    "methods": {
+      "Add": {
+        "description": "Добавляет атрибут в коллекцию",
+        "parameters": [
+          {
+            "name": "item",
+            "type": "object",
+            "description": "Добавляемый атрибут"
+          }
+        ],
+        "return_type": "void"
+      },
+      "get_Count": {
+        "description": "Возвращает количество атрибутов в коллекции",
+        "parameters": [],
+        "return_type": "int"
+      },
+      "get_Item": {
+        "description": "Возвращает атрибут из коллекции по его индексу",
+        "parameters": [
+          {
+            "name": "idx",
+            "type": "int",
+            "description": "Индекс атрибута"
+          }
+        ],
+        "return_type": "CPAttribute"
+      },
+      "Clear": {
+        "description": "Удаляет все атрибуты из коллекции",
+        "parameters": [],
+        "return_type": "void"
+      },
+      "Remove": {
+        "description": "Удаляет атрибут из коллекции",
+        "parameters": [
+          {
+            "name": "idx",
+            "type": "int",
+            "description": "Индекс удаляемого атрибута"
+          }
+        ],
+        "return_type": "void"
+      },
+      "Assign": {
+        "description": "Назначает коллекцию атрибутов",
+        "parameters": [
+          {
+            "name": "attrs",
+            "type": "object",
+            "description": "Коллекция атрибутов"
+          }
+        ],
+        "return_type": "void"
+      }
+    },
+    "properties": {
+      "Count": {
+        "description": "Возвращает количество атрибутов в коллекции"
+      },
+      "Item": {
+        "description": "Возвращает атрибут из коллекции по его индексу"
+      }
+    }
+  },
+  "CPBlobs": {
+    "description": "Объект CPBlobs Коллекция бинарных объектов. Объект CPBlobs предоставляет интерфейс ICPBlobs. Объект данного класса нельзя создать. Данный объект возвращают свойства OCSPResponses и CRLs объекта CPSigner.",
+    "methods": [],
+    "properties": {
+      "Count": {
+        "description": "Возвращает количество объектов в коллекции"
+      }
+    }
+  },
+  "CPCertificate": {
+    "description": "Объект CPCertificateОписывает сертификат открытого ключа. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. Certificate, а интерфейсы ICPCertificate2 и IAdditionalStore. В отличие от объекта Microsoft CAPICOM. Certificate, для данного объекта реализованы только следующие методы и свойства: **Export**, **Import**, **GetInfo**, **HasPrivateKey**, **IsValid**, **IssuerName**, **SerialNumber**, **SubjectName**, **Thumbprint**, **ValidFromDate**, **ValidToDate**, **Version**, **ExtendedKeyUsage**, **KeyUsage**, **PublicKey**, **PrivateKey**, **Extensions**, **BasicConstraints**. Метод AdditionalStore позволяет передать в объект дополнительное хранилище для проверки статуса сертификата. Метод **GetInfo** с использованием параметра CADESCOM_CERT_INFO_ROLE позволяет дополнительно определить положение сертификата в цепочке (ROOT\/CA\/LEAF). > Метод Export в КриптоПро ЭЦП Browser plug-in не поддерживает кодировку CAPICOM_ENCODE_BINARY. См. Особенности работы с бинарными данными. Объект Certificate может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта Certificate: CAdESCOM. Certificate. Для работы в браузере Internet Explorer рекомендуется использовать объект CAdESCOM. Certificate вместо CAPICOM. Certificate. > В библиотеке типов данный объект присутствует под именем CPCertificate.",
+    "methods": {
+      "Export": {
+        "description": "Экспортирует сертификат в виде закодированной строки"
+      },
+      "ExtendedKeyUsage": {
+        "description": "Возвращает объект ExtendedKeyUsage для данного сертификата"
+      },
+      "GetInfo": {
+        "description": "Возвращает информацию из сертификата"
+      },
+      "HasPrivateKey": {
+        "description": "Имеется ли закрытый ключ для сертификата"
+      },
+      "Import": {
+        "description": "Импортирует сертификат из закодированной строки"
+      },
+      "IsValid": {
+        "description": "Является ли сертификат валидным"
+      },
+      "KeyUsage": {
+        "description": "Возвращает объект KeyUsage для данного сертификата"
+      },
+      "PublicKey": {
+        "description": "Возвращает объект PublicKey для данного сертификата"
+      },
+      "Extensions": {
+        "description": "Возвращает объект Extensions для данного сертификата"
+      },
+      "AdditionalStore": {
+        "description": "Передать в объект дополнительное хранилище для проверки статуса сертификата"
+      },
+      "FindPrivateKey": {
+        "description": "Производит поиск закрытого ключа соответствующего сертификату открытого ключа и устанавливает ссылку на него"
+      }
+    },
+    "properties": {
+      "IssuerName": {
+        "description": "Издатель сертификата"
+      },
+      "PrivateKey": {
+        "description": "Закрытый ключ"
+      },
+      "PrivateKeyUsagePeriodFrom": {
+        "description": "Дата, с которой действителен закрытый ключ сертификата (из расширения с OID \"2. 5. 29. 16\")"
+      },
+      "PrivateKeyUsagePeriodTo": {
+        "description": "Дата, до которой действителен закрытый ключ сертификата (из расширения с OID \"2. 5. 29. 16\")"
+      },
+      "SerialNumber": {
+        "description": "Серийный номер"
+      },
+      "SubjectName": {
+        "description": "Имя субъекта"
+      },
+      "Thumbprint": {
+        "description": "Отпечаток"
+      },
+      "ValidFromDate": {
+        "description": "Дата, с которой сертификат действителен"
+      },
+      "ValidToDate": {
+        "description": "Дата, до которой сертификат действителен"
+      },
+      "Version": {
+        "description": "Версия сертификата"
+      }
+    }
+  },
+  "CPContainer": {
+    "description": "Объект CPContainerОбъект для работы с ключевым контейнером. Объект CPContainer предоставляет интерфейс ICPContainer. Объект данного класса нельзя создать. Данный объект возвращает метод CPContainers. Item.",
+    "methods": [],
+    "properties": {
+      "Keys": {
+        "description": "Коллекция ключей, содержащихся в ключевом контейнере"
+      },
+      "Media": {
+        "description": "Возвращает медиа для данного контейнера"
+      },
+      "Name": {
+        "description": "Возвращает имя контейнера"
+      },
+      "Reader": {
+        "description": "Возвращает имя считывателя для данного контейнера"
+      },
+      "Silent": {
+        "description": "Свойство задает флаг CRYPT_SILENT для запрета графического интерфейса при выполнении операций с данным контейнером"
+      },
+      "UniqueName": {
+        "description": "Возвращает имя контейнера в формате UniqueName"
+      }
+    }
+  },
+  "CPContainerKey": {
+    "description": "Объект CPContainerKeyОбъект для работы с ключом в ключевом контейнере. Объект CPContainerKey предоставляет интерфейсы ICPContainerKey, ICPContainerKey2, ICPContainerKey3. Объект данного класса нельзя создать. Данный объект возвращает свойство CPContainerKeys. Item.",
+    "methods": [],
+    "properties": {
+      "ExpirationTime": {
+        "description": "Возвращает дату истечения срока действия ключа"
+      },
+      "HasCertificate": {
+        "description": "Свойство для получения информации о наличии сертификата для данного ключа в ключевом контейнере"
+      },
+      "IsExportable": {
+        "description": "Свойство для получения информации о возможности экспортировать ключ"
+      },
+      "Type": {
+        "description": "Возвращает тип ключа"
+      },
+      "PublicKey": {
+        "description": "Возвращает открытый ключ для данного контейнера"
+      },
+      "KP_FP": {
+        "description": "Возвращает первые 8 байт открытого ключа"
+      },
+      "KP_ALGID": {
+        "description": "Возвращает значение параметра KP_ALGID (алгоритм ключа)"
+      }
+    }
+  },
+  "CPContainerKeys": {
+    "description": "Объект CPContainerKeysОбъект для работы с коллекцией ключей в ключевом контейнере. Объект CPContainerKeys предоставляет интерфейс ICPContainerKeys. . Объект данного класса нельзя создать. Данный объект возвращает свойство CPContainer. Keys.",
+    "methods": [],
+    "properties": []
+  },
+  "CPContainers": {
+    "description": "Объект CPContainersОбъект для работы с коллекцией ключевых контейнеров. Объект CPContainers предоставляет интерфейс ICPContainers. Объект данного класса нельзя создать. Данный объект возвращает метод CSPInformation. EnumContainers.",
+    "methods": [],
+    "properties": []
+  },
+  "CPCRL": {
+    "description": "Объект CPCRLОбъект для работы со списком отозванных сертификатов. Объект CPCRL предоставляет интерфейс ICPCRL2 Объект CPCRL может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта CPCRL: CAdESCOM. CRL.",
+    "methods": {
+      "Import": {
+        "description": "Инициализирует список отозванных сертификатов"
+      }
+    },
+    "properties": {
+      "IssuerName": {
+        "description": "Возвращает информацию об издателе списка отозванных серификатов"
+      },
+      "NextUpdate": {
+        "description": "Возвращает информацию о дате следующего обновления списка отозванных сертификатов"
+      },
+      "ThisUpdate": {
+        "description": "Возвращает информацию о дате выпуска списка отозванных сертификатов"
+      },
+      "Thumbprint": {
+        "description": "Возвращает информацию об отпечатке списка отозванных сертификатов, позволяющем однозначно идентифицировать список"
+      },
+      "CRLNextPublish": {
+        "description": "Возвращает информацию о дате следующей публикации списка отозванных сертификатов из расширения с OID 1. 3. 6. 1. 4. 1. 311. 21. 4"
+      }
+    }
+  },
+  "CPEnvelopedData": {
+    "description": "Объект CPEnvelopedDataЗашифрованное сообщение. Объект CPEnvelopedData предоставляет интерфейсы ICPEnvelopedData, ICPEnvelopedData2 и интерфейс, аналогичный интерфейсу объекта CAPICOM. EnvelopedData. В отличие от объекта CAPICOM. EnvelopedData, объект CPEnvelopedData работает с единственным алгоритмом шифрования - ГОСТ 28147-89. > Метод Encrypt в КриптоПро ЭЦП Browser plug-in не поддерживает кодировку CAPICOM_ENCODE_BINARY. См. Особенности работы с бинарными данными. Объект CPEnvelopedData может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта CPEnvelopedData: CAdESCOM. CPEnvelopedData.",
+    "methods": {
+      "Encrypt": {
+        "description": "Выполняет операцию шифрования"
+      },
+      "StreamDecrypt": {
+        "description": "Расшифровывает блок данных, используя данный сертификат"
+      },
+      "StreamEncrypt": {
+        "description": "Шифрует блок данных, используя данный сертификат"
+      }
+    },
+    "properties": {
+      "Content": {
+        "description": "Данные для шифрования"
+      },
+      "Recipients": {
+        "description": "Коллекция сертификатов, для которых выполняется шифрование"
+      },
+      "ContentEncoding": {
+        "description": "Способ кодирования данных"
+      }
+    }
+  },
+  "CPHashedData": {
+    "description": "Объект CPHashedDataХэш-значение данных. Объект HashedData предоставляет интерфейсы ICPHashedData, ICPHashedData2 и интерфейс, аналогичный интерфейсу объекта CAPICOM. HashedData. В отличие от объекта CAPICOM. HashedData, объект HashedData поддерживает алгоритм хэширования ГОСТ Р 34. 11-94 и ГОСТ Р 34. 11-2012. Объект HashedData может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта HashedData: CAdESCOM. HashedData.",
+    "methods": {
+      "SetHashValue": {
+        "description": "Позволяет проинициализировать объект готовым хэш-значением"
+      }
+    },
+    "properties": {
+      "Value": {
+        "description": "Возвращает результат операции хэширования"
+      },
+      "DataEncoding": {
+        "description": "Способ кодирования данных для хэширования"
+      },
+      "Key": {
+        "description": "Данные для установки ключа, используемого для вычисления HMAC"
+      }
+    }
+  },
+  "CPLicense": {
+    "description": "Объект CPLicenseОбъект для работы с лицензиями на продукты КриптоПро. Объект CPLicense предоставляет интерфейс ICPLicense2 Объект CPLicense может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта CPLicense: CAdESCOM. CPLicense.",
+    "methods": {
+      "FirstInstallDate": {
+        "description": "Возвращает информацию о дате первой установки продукта КриптоПро"
+      },
+      "SerialNumber": {
+        "description": "Возвращает информацию о серийном номере лицензии продукта КриптоПро"
+      },
+      "SetLicense": {
+        "description": "Устанавливает серийный номер, компанию и владельца лицензии"
+      },
+      "Type": {
+        "description": "Возвращает информацию о типе лицензии продукта КриптоПро"
+      },
+      "ValidTo": {
+        "description": "Возвращает информацию о сроке действия лицензии продукта КриптоПро"
+      },
+      "IsValid": {
+        "description": "Возвращает информацию о валидности лицензии продукта КриптоПро"
+      }
+    },
+    "properties": []
+  },
+  "CPReaders": {
+    "description": "Объект CPReadersОбъект для работы с коллекцией доступных считывателей. Объект CPReaders предоставляет интерфейс ICPReaders Объект данного класса нельзя создать. Данный объект возвращает свойство Readers объекта X509Enrollment. CCspInformation.",
+    "methods": [],
+    "properties": []
+  },
+  "CPSigner": {
+    "description": "Объект CPSignerОбъект, задающий параметры создания и содержащий информацию об усовершенствованной подписи. Объект CPSigner предоставляет интерфейсы ICPSigner6, ICPSigner5, ICPSigner4, ICPSigner3, ICPSigner2, ICPSigner и интерфейс, аналогичный CAPICOM. Signer. Объект CPSigner может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта CPSigner: CAdESCOM. CPSigner.",
+    "methods": {
+      "Display": {
+        "description": "Отображает диалоговое окно со свойствами ЭЦП (только Windows)"
+      }
+    },
+    "properties": {
+      "Certificate": {
+        "description": "Сертификат подписанта"
+      },
+      "Chain": {
+        "description": "Цепочка сертификата подписанта"
+      },
+      "Options": {
+        "description": "Параметры сертификата подписанта"
+      },
+      "AuthenticatedAttributes2": {
+        "description": "Коллекция подписанных атрибутов"
+      },
+      "CRLs": {
+        "description": "Коллекция СОС"
+      },
+      "OCSPResponses": {
+        "description": "Коллекция ответов служб актуальных статусов"
+      },
+      "TSAAddress": {
+        "description": "Адрес службы штампов времени"
+      },
+      "UnauthenticatedAttributes": {
+        "description": "Коллекция неподписанных атрибутов"
+      },
+      "SignatureTimeStampTime": {
+        "description": "Время подписи из штампа времени на значение подписи"
+      },
+      "SigningTime": {
+        "description": "Время подписи из атрибута signingTime"
+      },
+      "KeyPin": {
+        "description": "Пин-код для доступа к закрытому ключу"
+      },
+      "SignatureStatus": {
+        "description": "Статус электронной подписи"
+      },
+      "CheckCertificate": {
+        "description": "Проводить проверку цепочки сертификатов перед созданием подписи, с учетом сроков действия закрытого ключа (private key usage period)"
+      }
+    }
+  },
+  "CPSigners": {
+    "description": "Объект CPSignersКоллекция объектов CPSigner. Объект CPSigners предоставляет интерфейс аналогичный CAPICOM. Signers. Объект данного класса нельзя создать. Данный объект возвращает свойство Signers объекта CadesSignedData.",
+    "methods": [],
+    "properties": {
+      "Count": {
+        "description": "Возвращает количество объектов Signer в коллекции"
+      },
+      "Item": {
+        "description": "Возвращает объект Signer с заданным индексом"
+      }
+    }
+  },
+  "CPSignedData": {
+    "description": "Объект CPSignedData предоставляет методы для создания и проверки электронной подписи",
+    "methods": {
+      "SignCades": {
+        "description": "Создает усовершенствованную подпись CAdES",
+        "parameters": [
+          {"name": "zSigner", "type": "object", "description": "Объект подписанта"},
+          {"name": "cadesType", "type": "int", "description": "Тип CAdES"},
+          {"name": "detached", "type": "int", "description": "Отсоединенная подпись"},
+          {"name": "encodingType", "type": "int", "description": "Тип кодирования"}
+        ],
+        "return_type": "string"
+      },
+      "Verify": {
+        "description": "Проверяет подпись",
+        "parameters": [
+          {"name": "sSignedMessage", "type": "string", "description": "Подписанное сообщение"},
+          {"name": "signedMessage", "type": "int", "description": "Флаг подписанного сообщения"},
+          {"name": "detached", "type": "int", "description": "Отсоединенная подпись"}
+        ],
+        "return_type": "mixed"
+      }
+    },
+    "properties": {
+      "Content": {"description": "Содержимое для подписи"},
+      "ContentEncoding": {"description": "Кодирование содержимого"}
+    }
+  },
+  "CPReaderMode": {
+    "description": "CReaderModeРежим работы доступного считывателя. Объект представляет интерфейс ICPReaderMode. Объект CReaderMode не может создан.",
+    "methods": [],
+    "properties": {
+      "Media": {
+        "description": "Возвращает медиа для данного режима работы считывателя"
+      },
+      "Name": {
+        "description": "Возвращает имя для данного режима работы считывателя"
+      },
+      "NickName": {
+        "description": "Возвращает никнейм для данного режима работы считывателя"
+      }
+    }
+  },
+  "CPReaderModes": {
+    "description": "CReaderModesКоллекция режимов работы доступных считывателей. Объект представляет интерфейс ICPReaderModes. Объект данного класса нельзя создать. Данный объект возвращает свойство метод GetReaders объекта X509Enrollment. CCspInformation.",
+    "methods": [],
+    "properties": []
+  },
+  "CPEKU": {
+    "description": "Объект EKUОписывает расширение EKU сертификата. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. EKU. Объект данного класса нельзя создать. Данный объект является членом коллекции EKUs.",
+    "methods": {
+      "get_Name": {
+        "description": "Возвращает имя EKU",
+        "parameters": [],
+        "return_type": "int"
+      },
+      "set_Name": {
+        "description": "Устанавливает имя EKU",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "int",
+            "description": "Имя EKU"
+          }
+        ],
+        "return_type": "void"
+      },
+      "get_OID": {
+        "description": "Возвращает объектный идентификатор EKU",
+        "parameters": [],
+        "return_type": "string"
+      },
+      "set_OID": {
+        "description": "Устанавливает объектный идентификатор EKU",
+        "parameters": [
+          {
+            "name": "oID",
+            "type": "string",
+            "description": "Объектный идентификатор EKU"
+          }
+        ],
+        "return_type": "void"
+      }
+    },
+    "properties": {
+      "Name": {
+        "description": "Имя EKU"
+      },
+      "OID": {
+        "description": "Возвращает или устанавливает строку, содержащую объектный идентификатор EKU"
+      }
+    }
+  },
+  "CPEKUs": {
+    "description": "Объект EKUsОписывает коллекцию расширений EKU сертификата. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. EKUs. Объект данного класса нельзя создать. Данный объект возвращает свойство EKUs объекта ExtendedKeyUsage.",
+    "methods": {
+      "Add": {
+        "description": "Добавляет EKU в коллекцию",
+        "parameters": [
+          {
+            "name": "item",
+            "type": "object",
+            "description": "Добавляемый EKU"
+          }
+        ],
+        "return_type": "void"
+      },
+      "get_Count": {
+        "description": "Возвращает количество EKU в коллекции",
+        "parameters": [],
+        "return_type": "int"
+      },
+      "get_Item": {
+        "description": "Возвращает EKU с заданным индексом",
+        "parameters": [
+          {
+            "name": "idx",
+            "type": "int",
+            "description": "Индекс EKU"
+          }
+        ],
+        "return_type": "object"
+      },
+      "Clear": {
+        "description": "Удаляет все EKU из коллекции",
+        "parameters": [],
+        "return_type": "void"
+      },
+      "Remove": {
+        "description": "Удаляет EKU из коллекции",
+        "parameters": [
+          {
+            "name": "idx",
+            "type": "int",
+            "description": "Индекс удаляемого EKU"
+          }
+        ],
+        "return_type": "void"
+      }
+    },
+    "properties": {
+      "Count": {
+        "description": "Возвращает количество EKU в коллекции"
+      },
+      "Item": {
+        "description": "Возвращает EKU с заданным индексом"
+      }
+    }
+  },
+  "CPEncodedData": {
+    "description": "Объект EncodedDataОписывает закодированный блок данных. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. EncodedData. Объект данного класса нельзя создать. Данный объект возвращают свойства EncodedKey и EncodedParameters объекта PublicKey. В отличие от объекта Microsoft CAPICOM. EncodedData, для данного объекта реализованы только свойство **Value** и метод **Format**. В асинхронной версии плагина свойство **Value** реализовано как метод. На вход аргументом может передан тип кодировки, который следует использовать при кодировании возвращаемого значения. Аргумент должен иметь значение типа CAPICOM_ENCODING_TYPE. По умолчанию используется CAPICOM_ENCODE_BASE64. Метод **Format** не реализован на *nix платформах. > Свойство **Value** в КриптоПро ЭЦП Browser plug-in не поддерживает кодировку CAPICOM_ENCODE_BINARY. См. Особенности работы с бинарными данными.",
+    "methods": [],
+    "properties": []
+  },
+  "CPEnvelopedXML": {
+    "description": "Объект EnvelopedXMLЗашифрованный документ XML. Объект EnvelopedXML предоставляет свойства и методы для работы с подписанным документом XML. Объект EnvelopedXML предоставляет интерфейс IEnvelopedXML. Объект EnvelopedXML может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта EnvelopedXML: CAdESCOM. EnvelopedXML.",
+    "methods": {
+      "Encrypt": {
+        "description": "Зашифрование документа XML"
+      }
+    },
+    "properties": {
+      "Content": {
+        "description": "Шифруемые данные"
+      },
+      "Recipients": {
+        "description": "Сертификаты получателей зашифрованного документа"
+      }
+    }
+  },
+  "CPExtendedKeyUsage": {
+    "description": "Объект ExtendedKeyUsageОписывает расширенное использование ключа. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. ExtendedKeyUsage. Объект данного класса нельзя создать. Данный объект возвращает метод ExtendedKeyUsage объекта CPCertificate.",
+    "methods": [],
+    "properties": {
+      "IsCritical": {
+        "description": "Является ли расширение критическим"
+      },
+      "IsPresent": {
+        "description": "Присутствует ли расширение"
+      }
+    }
+  },
+  "CPExtension": {
+    "description": "Объект ExtensionПредоставляет свойства и методы для работы с расширениями сертификата. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. Extension. Объект данного класса нельзя создать. Данный объект является членом коллекции Extensions.",
+    "methods": [],
+    "properties": {
+      "IsCritical": {
+        "description": "Является ли расширение критическим"
+      },
+      "OID": {
+        "description": "Возвращает объект OID, представляющий объектный идентификатор расширения"
+      }
+    }
+  },
+  "CPExtensions": {
+    "description": "Объект ExtensionsОписывает коллекцию расширений сертификата. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. Extensions. Объект данного класса нельзя создать. Данный объект возвращает свойство Extensions объекта Certificate.",
+    "methods": [],
+    "properties": {
+      "Item": {
+        "description": "Возвращает расширение с заданным индексом"
+      }
+    }
+  },
+  "CPKeyUsage": {
+    "description": "Объект KeyUsageОписывает расширение KeyUsage сертификата. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. KeyUsage. Объект данного класса нельзя создать. Данный объект возвращает метод KeyUsage объекта CPCertificate.",
+    "methods": [],
+    "properties": {
+      "IsDataEnciphermentEnabled": {
+        "description": "Установлен ли бит dataEncipherment"
+      },
+      "IsDecipherOnlyEnabled": {
+        "description": "Установлен ли бит decipherOnly"
+      },
+      "IsDigitalSignatureEnabled": {
+        "description": "Установлен ли бит digitalSignature"
+      },
+      "IsEncipherOnlyEnabled": {
+        "description": "Установлен ли бит encipherOnly"
+      },
+      "IsKeyAgreementEnabled": {
+        "description": "Установлен ли бит keyAgreement"
+      },
+      "IsKeyCertSignEnabled": {
+        "description": "Установлен ли бит keyCertSign"
+      },
+      "IsKeyEnciphermentEnabled": {
+        "description": "Установлен ли бит keyEncipherment"
+      },
+      "IsNonRepudiationEnabled": {
+        "description": "Установлен ли бит nonRepudiationEnabled"
+      },
+      "IsPresent": {
+        "description": "Присутствует ли расширение"
+      }
+    }
+  },
+  "CPOID": {
+    "description": "Объект OIDОписывает объектный идентификатор. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. OID. Объект данного класса нельзя создать. Данный объект возвращает свойство OID объекта CPAttribute.",
+    "methods": [],
+    "properties": {
+      "Name": {
+        "description": "Возвращает или устанавливает имя для OID"
+      },
+      "Value": {
+        "description": "Возвращает или устанавливает OID"
+      }
+    }
+  },
+  "CPPrivateKey": {
+    "description": "Объект PrivateKeyОписывает закрытый ключ сертификата. Обьект предоставляет интерфейс CAdESCOM. ICPPrivateKey, CAdESCOM. ICPPrivateKey2, CAdESCOM. ICPPrivateKey4 и интерфейс аналогичный интерфейсу объекта CAPICOM. PrivateKey. Объект данного класса нельзя создать. Данный объект возвращает свойство PrivateKey объекта CPCertificate. В отличие от объекта Microsoft CAPICOM. PrivateKey, для данного объекта реализованы только следующие методы и свойства: **ContainerName**, **KeySpec**, **ProviderName**, **ProviderType**, **UniqueContainerName**, **KeyPin**, **CachePin**, **ChangePin**.",
+    "methods": {
+      "CacheKey": {
+        "description": "Предназначен для явного кэширования\/освобождения из кэша контекста закрытого ключа средствами плагина"
+      }
+    },
+    "properties": {
+      "ProviderName": {
+        "description": "Возвращает имя криптографического провайдера"
+      },
+      "ProviderType": {
+        "description": "Возвращает тип криптографического провайдера"
+      },
+      "UniqueContainerName": {
+        "description": "Возвращает уникальное имя контейнера закрытого ключа"
+      },
+      "CachePin": {
+        "description": "Кэшировать пароль к контейнеру закрытого ключа"
+      },
+      "KeyPin": {
+        "description": "Пароль к контейнеру закрытого ключа"
+      },
+      "IsDefaultPin": {
+        "description": "Является ли пароль к контейнеру закрытого ключа паролем \"по умолчанию\""
+      },
+      "CarrierFlags": {
+        "description": "Значение флагов PP_CARRIER_FLAGS для закрытого ключа"
+      }
+    }
+  },
+  "CPPrivateKeyUsageValidator": {
+    "description": "",
+    "methods": [],
+    "properties": []
+  },
+  "CPPublicKey": {
+    "description": "Объект PublicKeyОписывает открытый ключ сертификата. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. PublicKey. Объект данного класса нельзя создать. Данный объект возвращает метод PublicKey объекта CPCertificate.",
+    "methods": [],
+    "properties": {
+      "EncodedKey": {
+        "description": "Возвращает значение открытого ключа"
+      },
+      "EncodedParameters": {
+        "description": "Возвращает параметры алгоритма открытого ключа"
+      },
+      "Length": {
+        "description": "Возвращает длину открытого ключа в битах"
+      }
+    }
+  },
+  "CPRawSignature": {
+    "description": "Объект RawSignatureЗначение электронной подписи. Объект RawSignature предоставляет интерфейс IRawSignature. Объект RawSignature может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта RawSignature: CAdESCOM. RawSignature.",
+    "methods": {
+      "VerifyHash": {
+        "description": "Проверяет значение электронной подписи на основе переданного хэш-значения"
+      }
+    },
+    "properties": []
+  },
+  "CPRecipients": {
+    "description": "Объект RecipientsОписывает коллекцию сертификатов для шифрования. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. Recipients. Объект данного класса нельзя создать. Данный объект возвращает свойство Recipients объекта CPEnvelopedData.",
+    "methods": {
+      "Clear": {
+        "description": "Удаляет все сертификаты из коллекции"
+      },
+      "Remove": {
+        "description": "Удаляет сертификат из коллекции"
+      }
+    },
+    "properties": {
+      "Count": {
+        "description": "Возвращает число объектов в коллекции"
+      },
+      "Item": {
+        "description": "Возвращает объект с заданным индексом"
+      }
+    }
+  },
+  "CPSignatureStatus": {
+    "description": "Объект SignatureStatusСтатус электронной подписи. Объект SignatureStatus предоставляет интерфейс ISignatureStatus. Объект данного класса нельзя создать. Данный объект возвращает свойство SignatureStatus объекта CPSigner.",
+    "methods": [],
+    "properties": []
+  },
+  "CPSignedXML": {
+    "description": "Объект SignedXMLПодписанный документ XML. Объект SignedXML предоставляет интерфейс ISignedXML. Объект SignedXML может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта SignedXML: CAdESCOM. SignedXML.",
+    "methods": {
+      "Verify": {
+        "description": "Проверяет подпись под документом XML"
+      }
+    },
+    "properties": {
+      "DigestMethod": {
+        "description": "Uniform Resource Identifier (URI) алгоритма хэширования"
+      },
+      "SignatureMethod": {
+        "description": "Uniform Resource Identifier (URI) алгоритма подписи"
+      },
+      "SignatureType": {
+        "description": "Тип подписи"
+      },
+      "Signers": {
+        "description": "Коллекция подписей"
+      }
+    }
+  },
+  "CPStore": {
+    "description": "Объект StoreОписывает хранилище сертификатов. Реализует интерфейс, аналогичный интерфейсу объекта CAPICOM. Store, а интерфейсы ICPStore2 и IEventSource. В отличие от объекта Microsoft CAPICOM. Store, для данного объекта реализованы только следующие методы и свойства: **Open**, **Close**, **Certificates**, **Location**, **Name**, **Add**, **Remove**. В методе **Open** для параметра Location поддерживаются только значения CAPICOM_CURRENT_USER_STORE, CAPICOM_LOCAL_MACHINE_STORE, CAPICOM_MEMORY_STORE, CAPICOM_SMART_CARD_USER_STORE, CADESCOM_CONTAINER_STORE. Параметр CADESCOM_CONTAINER_STORE предназачен для перечисления всех сертификатов со связанным контейнером закрытого ключа. Работа с хранилищем CAPICOM_SMART_CARD_USER_STORE поддерживается только с КриптоПро CSP 5. 0. 11823 и выше. Метод **Add** поддерживается для хранилищ Root, CA и AddressBook (CA, AddressBook в версиях плагина 2. 0. 15400+) раздела CAPICOM_CURRENT_USER_STORE, а для хранилища типа CADESCOM_MEMORY_STORE.",
+    "methods": {
+      "Close": {
+        "description": "Закрывает хранилище сертификатов"
+      },
+      "Open": {
+        "description": "Открывает хранилище сертификатов"
+      },
+      "Remove": {
+        "description": "Удаляет сертификат из открытого хранилища"
+      },
+      "addEventListener": {
+        "description": "Добавить обработчик наступления события"
+      },
+      "removeEventListener": {
+        "description": "Удалить обработчик наступления события"
+      },
+      "AddCRL": {
+        "description": "Добавляет список отозванных сертификатов в хранилище"
+      },
+      "ImportPFX": {
+        "description": "Импортирует переданный"
+      }
+    },
+    "properties": {
+      "Location": {
+        "description": "Возвращает расположение хранилища сертификатов"
+      },
+      "Name": {
+        "description": "Возвращает имя хранилища"
+      }
+    }
+  },
+  "CPSymmetricAlgorithm": {
+    "description": "Объект SymmetricAlgorithmОбъект SymmetricAlgorithm предоставляет свойства и методы для работы с симметричными ключами и шифрования \/ расшифрования данных на симметричных ключах. Обьект представляет интерфейс ISymmetricAlgorithm3. Объект SymmetricAlgorithm может создан и является безопасным для использования в сценариях элементов ActiveX. Идентификатор ProgID для объекта SymmetricAlgorithm : CAdESCOM. SymmetricAlgorithm.",
+    "methods": {
+      "DiversifyKey": {
+        "description": "Генерирует новый ключ на основе текущего ключа и случайной последовательности"
+      },
+      "Encrypt": {
+        "description": "Шифрует блок данных, используя текущий ключ"
+      },
+      "ExportKey": {
+        "description": "Экспортирует симметричный ключ в зашифрованном виде"
+      },
+      "GenerateKey": {
+        "description": "Генерирует случайный ключ для использования в алгоритме симметричного шифрования"
+      },
+      "ImportKey": {
+        "description": "Импортирует ранее экспортированый симметричный ключ"
+      },
+      "SetMode": {
+        "description": "Задает параметр Mode, с помощью которого можно регулировать режим шифрования (KP_MODE)"
+      },
+      "SetPadding": {
+        "description": "Задает параметр Padding, с помощью которого можно регулировать заполнение (KP_PADDING)"
+      }
+    },
+    "properties": {
+      "IV": {
+        "description": "Получает или задает вектор инициализации (IV) для алгоритма симметричного шифрования"
+      },
+      "LegacyPluginSymmetricExport": {
+        "description": "Задает параметр LegacyPluginSymmetricExport, с помощью которого можно регулировать ALG_ID при экспорте и импорте ключа"
+      }
+    }
+  },
+  "CPVersion": {
+    "description": "Объект VersionОписывает версию. Объект Version предоставляет интерфейс IVersion. Объект данного класса нельзя создать. Данный объект возвращают метод CSPVersion и свойство PluginVersion объекта About.",
+    "methods": [],
+    "properties": {
+      "MajorVersion": {
+        "description": "Возвращает старший компонент версии"
+      },
+      "MinorVersion": {
+        "description": "Возвращает младший компонент версии"
+      }
+    }
+  },
+  "SymmetricAlgorithm": {
+    "description": "Объект SymmetricAlgorithm предоставляет методы для работы с симметричным шифрованием",
+    "methods": {
+      "get_DiversData": {
+        "description": "Возвращает данные диверсификации",
+        "parameters": [],
+        "return_type": "string"
+      },
+      "set_DiversData": {
+        "description": "Устанавливает данные диверсификации",
+        "parameters": [
+          {
+            "name": "str",
+            "type": "string",
+            "description": "Данные диверсификации"
+          }
+        ],
+        "return_type": "void"
+      },
+      "get_IV": {
+        "description": "Возвращает вектор инициализации",
+        "parameters": [],
+        "return_type": "string"
+      },
+      "set_IV": {
+        "description": "Устанавливает вектор инициализации",
+        "parameters": [
+          {
+            "name": "str",
+            "type": "string",
+            "description": "Вектор инициализации"
+          }
+        ],
+        "return_type": "void"
+      },
+      "Encrypt": {
+        "description": "Шифрует данные",
+        "parameters": [
+          {
+            "name": "str",
+            "type": "string",
+            "description": "Данные для шифрования"
+          },
+          {
+            "name": "isFinal",
+            "type": "int",
+            "description": "Финальный блок"
+          }
+        ],
+        "return_type": "string"
+      },
+      "Decrypt": {
+        "description": "Расшифровывает данные",
+        "parameters": [
+          {
+            "name": "str",
+            "type": "string",
+            "description": "Данные для расшифровки"
+          },
+          {
+            "name": "isFinal",
+            "type": "int",
+            "description": "Финальный блок"
+          }
+        ],
+        "return_type": "string"
+      },
+      "GenerateKey": {
+        "description": "Генерирует ключ",
+        "parameters": [
+          {
+            "name": "algo",
+            "type": "int",
+            "description": "Алгоритм"
+          }
+        ],
+        "return_type": "mixed"
+      },
+      "DiversifyKey": {
+        "description": "Диверсифицирует ключ",
+        "parameters": [],
+        "return_type": "mixed"
+      },
+      "ImportKey": {
+        "description": "Импортирует ключ",
+        "parameters": [
+          {
+            "name": "dataStr",
+            "type": "string",
+            "description": "Данные ключа"
+          },
+          {
+            "name": "ldataStr",
+            "type": "object",
+            "description": "Дополнительные данные"
+          },
+          {
+            "name": "zRecipient",
+            "type": "string",
+            "description": "Получатель"
+          }
+        ],
+        "return_type": "mixed"
+      },
+      "ExportKey": {
+        "description": "Экспортирует ключ",
+        "parameters": [
+          {
+            "name": "zRecipient",
+            "type": "object",
+            "description": "Получатель"
+          }
+        ],
+        "return_type": "string"
+      }
+    },
+    "properties": {
+      "DiversData": {
+        "description": "Данные диверсификации"
+      },
+      "IV": {
+        "description": "Вектор инициализации"
+      }
+    }
+  },
+  "Version": {
+    "description": "Объект Version описывает информацию о версии",
+    "methods": {
+      "get_MajorVersion": {
+        "description": "Возвращает старший номер версии",
+        "parameters": [],
+        "return_type": "int"
+      },
+      "get_MinorVersion": {
+        "description": "Возвращает младший номер версии",
+        "parameters": [],
+        "return_type": "int"
+      },
+      "get_BuildVersion": {
+        "description": "Возвращает номер сборки",
+        "parameters": [],
+        "return_type": "int"
+      },
+      "toString": {
+        "description": "Возвращает строковое представление версии",
+        "parameters": [],
+        "return_type": "string"
+      }
+    },
+    "properties": {
+      "MajorVersion": {
+        "description": "Старший номер версии"
+      },
+      "MinorVersion": {
+        "description": "Младший номер версии"
+      },
+      "BuildVersion": {
+        "description": "Номер сборки"
+      }
+    }
+  }
+}
