@@ -78,6 +78,22 @@ function getPropertyDescription($className, $methodName) {
 }
 
 /**
+ * Получает описания параметров метода из карты документации
+ */
+function getParameterDescriptions($className, $methodName) {
+    global $documentationMap;
+    
+    $descriptions = [];
+    if (isset($documentationMap[$className]['methods'][$methodName]['parameters'])) {
+        foreach ($documentationMap[$className]['methods'][$methodName]['parameters'] as $param) {
+            $descriptions[$param['name']] = $param['description'];
+        }
+    }
+    
+    return $descriptions;
+}
+
+/**
  * Парсит константы из исходников PHPCades
  */
 function parseConstants($srcDir) {
@@ -367,9 +383,14 @@ function generateStubFile($classes, $constants, $outputFile) {
                     }
                 }
                 
-                // Добавляем @param для каждого параметра
+                // Получаем описания параметров из карты документации
+                $paramDescriptions = getParameterDescriptions($className, $methodName);
+
+                // Добавляем @param для каждого параметра с описанием если есть
                 foreach ($methodData['params'] as $param) {
-                    $stubContent .= "     * @param {$param['type']} \${$param['name']}\n";
+                    $paramName = $param['name'];
+                    $paramDescription = isset($paramDescriptions[$paramName]) ? ' ' . $paramDescriptions[$paramName] : '';
+                    $stubContent .= "     * @param {$param['type']} \${$paramName}{$paramDescription}\n";
                 }
                 
                 // Добавляем @return если есть возвращаемое значение
