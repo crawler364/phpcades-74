@@ -57,18 +57,24 @@ function getMethodDescription($className, $methodName) {
 }
 
 /**
+ * Извлекает имя свойства из имени метода (геттер/сеттер)
+ */
+function extractPropertyName($methodName) {
+    if (strpos($methodName, 'get_') === 0) {
+        return substr($methodName, 4);
+    } elseif (strpos($methodName, 'set_') === 0) {
+        return substr($methodName, 4);
+    }
+    return '';
+}
+
+/**
  * Ищет описание свойства в карте документации (для геттеров/сеттеров)
  */
 function getPropertyDescription($className, $methodName) {
     global $documentationMap;
     
-    // Извлекаем имя свойства из геттера/сеттера
-    $propertyName = '';
-    if (strpos($methodName, 'get_') === 0) {
-        $propertyName = substr($methodName, 4);
-    } elseif (strpos($methodName, 'set_') === 0) {
-        $propertyName = substr($methodName, 4);
-    }
+    $propertyName = extractPropertyName($methodName);
     
     if (!empty($propertyName) && isset($documentationMap[$className]['properties'][$propertyName]['description'])) {
         return $documentationMap[$className]['properties'][$propertyName]['description'];
@@ -91,6 +97,28 @@ function getParameterDescriptions($className, $methodName) {
     }
     
     return $descriptions;
+}
+
+/**
+ * Получает return_type из карты документации для методов и свойств
+ */
+function getReturnTypeFromMap($className, $methodName) {
+    global $documentationMap;
+
+    if (isset($documentationMap[$className]['methods'][$methodName]['return_type'])) {
+        return $documentationMap[$className]['methods'][$methodName]['return_type'];
+    }
+
+    $propertyName = extractPropertyName($methodName);
+    
+    if (!empty($propertyName) && isset($documentationMap[$className]['properties'][$propertyName]['return_type'])) {
+        if (strpos($methodName, 'set_') === 0) {
+            return 'void';
+        }
+        return $documentationMap[$className]['properties'][$propertyName]['return_type'];
+    }
+    
+    return '';
 }
 
 /**
@@ -117,8 +145,6 @@ function parseConstants($srcDir) {
                 } else {
                     $constants[$name] = $value;
                 }
-                
-                echo "  Найдена константа: $name = $value\n";
             }
         }
     }
@@ -176,11 +202,31 @@ function parsePhpCadesClasses($srcDir) {
     return $classes;
 }
 
+function getParamTypeFromChar($char, $optional) {
+    switch ($char) {
+        case 'l':
+            return $optional ? '?int' : 'int';
+        case 's':
+            return $optional ? '?string' : 'string';
+        case 'z':
+            return 'mixed';
+        case 'b':
+            return $optional ? '?bool' : 'bool';
+        case 'd':
+            return $optional ? '?float' : 'float';
+        case 'o':
+        case 'O':
+            return 'object';
+        case 'a':
+            return 'array';
+        default:
+            return null;
+    }
+}
+
 function normalizeParameterName($varName, $paramType, $methodName) {
-    // Убираем типовые префиксы C++
     $varName = preg_replace('/^(l|sz|str|p|n|b|dw)([A-Z])/', '$2', $varName);
     
-    // Приводим к camelCase
     if (strpos($varName, '_') !== false) {
         $parts = explode('_', strtolower($varName));
         $varName = $parts[0];
@@ -206,14 +252,9 @@ function parseMethodParameters($content, $methodName) {
             $formatString = $parseMatch[1];
             $parametersString = $parseMatch[2];
             
-            echo "      Формат параметров: $formatString\n";
-            echo "      Строка параметров: $parametersString\n";
-            
-            // Извлекаем имена переменных из строки параметров
             $variableNames = [];
             if (preg_match_all('/&(\w+)/', $parametersString, $varMatches)) {
                 $variableNames = $varMatches[1];
-                echo "      Найденные переменные: " . implode(', ', $variableNames) . "\n";
             }
             
             // Разбираем формат параметров и сопоставляем с именами
@@ -234,47 +275,9 @@ function parseMethodParameters($content, $methodName) {
                     normalizeParameterName($variableNames[$varIndex], $paramType, $methodName) : 
                     "param$paramIndex";
                 
-                switch ($char) {
-                    case 'l':
-                        $paramType = $optional ? '?int' : 'int';
-                        break;
-                    case 's':
-                        $paramType = $optional ? '?string' : 'string';
-                        // Для строк часто есть еще параметр длины
-                        $params[] = [
-                            'type' => $paramType,
-                            'name' => $paramName,
-                            'optional' => $optional
-                        ];
-                        $varIndex++;
-                        $paramIndex++;
-                        
-                        // Проверяем, есть ли параметр длины
-                        if (isset($variableNames[$varIndex]) && 
-                            (strpos($variableNames[$varIndex], 'len') !== false || 
-                             strpos($variableNames[$varIndex], 'size') !== false)) {
-                            // Параметр длины обычно не включается в PHP API
-                            $varIndex++;
-                        }
-                        continue 2;
-                    case 'z':
-                        $paramType = 'mixed';
-                        break;
-                    case 'b':
-                        $paramType = $optional ? '?bool' : 'bool';
-                        break;
-                    case 'd':
-                        $paramType = $optional ? '?float' : 'float';
-                        break;
-                    case 'o':
-                    case 'O':
-                        $paramType = 'object';
-                        break;
-                    case 'a':
-                        $paramType = 'array';
-                        break;
-                    default:
-                        continue 2;
+                $paramType = getParamTypeFromChar($char, $optional);
+                if ($paramType === null) {
+                    continue;
                 }
                 
                 $params[] = [
@@ -285,6 +288,12 @@ function parseMethodParameters($content, $methodName) {
                 
                 $varIndex++;
                 $paramIndex++;
+                
+                if ($char === 's' && isset($variableNames[$varIndex]) && 
+                    (strpos($variableNames[$varIndex], 'len') !== false || 
+                     strpos($variableNames[$varIndex], 'size') !== false)) {
+                    $varIndex++;
+                }
             }
         }
     }
@@ -293,23 +302,19 @@ function parseMethodParameters($content, $methodName) {
 }
 
 function parseReturnType($content, $methodName) {
-    // Ищем блок метода
     if (preg_match("/PHP_METHOD\s*\([^,]+,\s*$methodName\s*\)[^{]*\{(.*?)(?=^PHP_METHOD|\n})/ms", $content, $methodBlock)) {
         $methodContent = $methodBlock[1];
         
-        // String возвраты
         if (strpos($methodContent, 'RETURN_ATL_STRING') !== false || 
             strpos($methodContent, 'RETURN_PROXY_STRING') !== false ||
             strpos($methodContent, 'RETURN_STRINGL') !== false) {
             return 'string';
         }
         
-        // Integer возвраты  
         if (strpos($methodContent, 'RETURN_LONG') !== false) {
             return 'int';
         }
         
-        // Boolean возвраты
         if (strpos($methodContent, 'RETURN_TRUE') !== false || 
             strpos($methodContent, 'RETURN_FALSE') !== false) {
             return 'bool';
@@ -319,109 +324,124 @@ function parseReturnType($content, $methodName) {
     return '';
 }
 
-function generateStubFile($classes, $constants, $outputFile) {
-    // Создаем заголовок с комментариями и датой
-    $stubContent = "<?php\n";
-    $stubContent .= "/** @noinspection PhpUnused */\n";
-    $stubContent .= "/** @noinspection PhpInconsistentReturnPointsInspection */\n";
-    $stubContent .= "/** @noinspection PhpUndefinedClassInspection */\n\n";
-    $stubContent .= "/**\n";
-    $stubContent .= " * PHPCades Stubs\n";
-    $stubContent .= " * Автоматически сгенерированные заглушки для PHPCades расширения\n";
-    $stubContent .= " * \n";
-    $stubContent .= " * Генератор: generate_stubs.php\n";
-    $stubContent .= " * Дата: " . date('r') . "\n";
-    $stubContent .= " */\n\n";
-    $stubContent .= "\n/** @generate-class-entries */\n\n";
+function generateStubHeader() {
+    $content = "<?php\n";
+    $content .= "/** @noinspection PhpUnused */\n";
+    $content .= "/** @noinspection PhpInconsistentReturnPointsInspection */\n";
+    $content .= "/** @noinspection PhpUndefinedClassInspection */\n";
+    $content .= "/** @noinspection PhpReturnDocTypeMismatchInspection */\n\n";
+    $content .= "/**\n";
+    $content .= " * PHPCades Stubs\n";
+    $content .= " * Автоматически сгенерированные заглушки для PHPCades расширения\n";
+    $content .= " * \n";
+    $content .= " * Генератор: generate_stubs.php\n";
+    $content .= " * Дата: " . date('r') . "\n";
+    $content .= " */\n\n";
+    $content .= "\n/** @generate-class-entries */\n\n";
     
-    // Добавляем константы
-    if (!empty($constants)) {
-        $stubContent .= "// Константы расширения php_cpcsp\n";
-        foreach ($constants as $name => $value) {
-            if (is_string($value)) {
-                $stubContent .= "const $name = '$value';\n";
-            } else {
-                $stubContent .= "const $name = $value;\n";
-            }
-        }
-        $stubContent .= "\n";
+    return $content;
+}
+
+function generateStubConstants($constants) {
+    if (empty($constants)) {
+        return '';
     }
     
-    foreach ($classes as $className => $classData) {
-        // Добавляем описание класса из карты документации
-        $classDescription = getClassDescription($className);
-        if (!empty($classDescription)) {
-            $stubContent .= "/**\n";
-            $stubContent .= " * " . $classDescription . "\n";
-            $stubContent .= " */\n";
+    $content = "// Константы расширения php_cpcsp\n";
+    foreach ($constants as $name => $value) {
+        if (is_string($value)) {
+            $content .= "const $name = '$value';\n";
+        } else {
+            $content .= "const $name = $value;\n";
         }
-        
-        $stubContent .= "class $className {\n";
-        
-        foreach ($classData['methods'] as $methodName => $methodData) {
-            // Получаем описание метода из карты документации
-            $methodDescription = getMethodDescription($className, $methodName);
-            
-            // Если описания метода нет, пробуем найти описание свойства (для геттеров/сеттеров)
-            if (empty($methodDescription)) {
-                $methodDescription = getPropertyDescription($className, $methodName);
-            }
-            
-            // Генерируем PHPDoc с описанием, @param и @return
-            $hasParams = !empty($methodData['params']);
-            $hasReturn = !empty($methodData['return']);
-            $hasDescription = !empty($methodDescription);
-            
-            if ($hasDescription || $hasParams || $hasReturn) {
-                $stubContent .= "    /**\n";
-                
-                // Добавляем описание метода если есть
-                if ($hasDescription) {
-                    $stubContent .= "     * " . $methodDescription . "\n";
-                    if ($hasParams || $hasReturn) {
-                        $stubContent .= "     *\n";
-                    }
-                }
-                
-                // Получаем описания параметров из карты документации
-                $paramDescriptions = getParameterDescriptions($className, $methodName);
+    }
+    $content .= "\n";
+    
+    return $content;
+}
 
-                // Добавляем @param для каждого параметра с описанием если есть
-                foreach ($methodData['params'] as $param) {
-                    $paramName = $param['name'];
-                    $paramDescription = isset($paramDescriptions[$paramName]) ? ' ' . $paramDescriptions[$paramName] : '';
-                    $stubContent .= "     * @param {$param['type']} \${$paramName}{$paramDescription}\n";
+function generateStubClass($className, $classData) {
+    $content = '';
+    
+    $classDescription = getClassDescription($className);
+    if (!empty($classDescription)) {
+        $content .= "/**\n";
+        $content .= " * " . $classDescription . "\n";
+        $content .= " */\n";
+    }
+    
+    $content .= "class $className {\n";
+    
+    foreach ($classData['methods'] as $methodName => $methodData) {
+        $methodDescription = getMethodDescription($className, $methodName);
+        
+        if (empty($methodDescription)) {
+            $methodDescription = getPropertyDescription($className, $methodName);
+        }
+
+        $mapReturnType = getReturnTypeFromMap($className, $methodName);
+        
+        $hasParams = !empty($methodData['params']);
+        $hasReturn = !empty($methodData['return']) || !empty($mapReturnType);
+        $hasDescription = !empty($methodDescription);
+        
+        if ($hasDescription || $hasParams || $hasReturn) {
+            $content .= "    /**\n";
+            
+            if ($hasDescription) {
+                $content .= "     * " . $methodDescription . "\n";
+                if ($hasParams || $hasReturn) {
+                    $content .= "     *\n";
                 }
-                
-                // Добавляем @return если есть возвращаемое значение
-                if ($hasReturn) {
-                    $stubContent .= "     * @return {$methodData['return']}\n";
-                }
-                
-                $stubContent .= "     */\n";
             }
             
-            $params = [];
+            $paramDescriptions = getParameterDescriptions($className, $methodName);
+
             foreach ($methodData['params'] as $param) {
-                $paramStr = $param['type'] . ' $' . $param['name'];
-                if ($param['optional']) {
-                    $paramStr .= ' = null';
-                }
-                $params[] = $paramStr;
+                $paramName = $param['name'];
+                $paramDescription = isset($paramDescriptions[$paramName]) ? ' ' . $paramDescriptions[$paramName] : '';
+                $content .= "     * @param {$param['type']} \${$paramName}{$paramDescription}\n";
             }
             
-            $paramStr = implode(', ', $params);
-            $returnType = $methodData['return'];
-
-            if ($returnType === '') {
-                $stubContent .= "    public function $methodName($paramStr) {}\n";
-            } else {
-                $stubContent .= "    public function $methodName($paramStr): $returnType {}\n";
+            if ($hasReturn) {
+                $returnType = !empty($mapReturnType) ? $mapReturnType : $methodData['return'];
+                $content .= "     * @return {$returnType}\n";
             }
-            $stubContent .= "    \n";
+            
+            $content .= "     */\n";
         }
         
-        $stubContent .= "}\n\n";
+        $params = [];
+        foreach ($methodData['params'] as $param) {
+            $paramStr = $param['type'] . ' $' . $param['name'];
+            if ($param['optional']) {
+                $paramStr .= ' = null';
+            }
+            $params[] = $paramStr;
+        }
+        
+        $paramStr = implode(', ', $params);
+        $returnType = $methodData['return'];
+
+        if ($returnType === '') {
+            $content .= "    public function $methodName($paramStr) {}\n";
+        } else {
+            $content .= "    public function $methodName($paramStr): $returnType {}\n";
+        }
+        $content .= "    \n";
+    }
+    
+    $content .= "}\n\n";
+    
+    return $content;
+}
+
+function generateStubFile($classes, $constants, $outputFile) {
+    $stubContent = generateStubHeader();
+    $stubContent .= generateStubConstants($constants);
+    
+    foreach ($classes as $className => $classData) {
+        $stubContent .= generateStubClass($className, $classData);
     }
     
     file_put_contents($outputFile, $stubContent);
