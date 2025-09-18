@@ -32,13 +32,23 @@ try {
     
     $certificates = $certificateStore->get_Certificates();
     echo "✓ Получен объект сертификатов\n";
+
+    $certHashFile = __DIR__ . '/cert_hash.txt';
+    if (!file_exists($certHashFile)) {
+        throw new RuntimeException('Файл с хешем сертификата не найден: ' . $certHashFile);
+    }
+    
+    $certHash = trim(file_get_contents($certHashFile));
+    if (empty($certHash)) {
+        throw new RuntimeException('Файл с хешем сертификата пустой: ' . $certHashFile);
+    }
     
     $foundCertificates = $certificates->Find(
         CERTIFICATE_FIND_SHA1_HASH,
-        '0647f77d2af7d81a297f18df3bb9c9c26c9e6c48',
+        $certHash,
         true
     );
-    echo "✓ Выполнен поиск по SHA1 хешу: 0647f77d2af7d81a297f18df3bb9c9c26c9e6c48\n";
+    echo "✓ Выполнен поиск по SHA1 хешу: $certHash\n";
     
     $count = $foundCertificates->Count();
     echo "✓ Количество найденных сертификатов: " . $count . "\n";

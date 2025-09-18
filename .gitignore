@@ -2,3 +2,4 @@
 /phpcades/linux-amd64.tgz
 /src/
 /stubs/php_cpcsp-phpcades-stubs.php
+/test/cert_hash.txt
