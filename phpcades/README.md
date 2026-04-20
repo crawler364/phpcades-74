@@ -21,14 +21,17 @@ sudo ./install.sh
 6. **Настройка PHP** - создание ini-файлов для подключения PHPCades расширения
 7. **Проверка установки** - тестирование работоспособности библиотеки
 
-## Установка сертификатов (под bitrix)
-#### Шаг 1: Установка сертификата в стор
+## Установка сертификатов
+
+### Сертификат подписанта
+
+#### Шаг 1: Установка сертификата в стор (под bitrix)
 
 ```bash
 /opt/cprocsp/bin/amd64/certmgr -install -file <путь_к_файлу_сертификата>
 ```
 
-#### Шаг 2: Привязка сертификата к контейнеру закрытого ключа
+#### Шаг 2: Привязка сертификата к контейнеру закрытого ключа (под bitrix)
 
 Для работы с электронной подписью необходимо установить сертификат и связать его с контейнером закрытого ключа.
 
@@ -39,7 +42,6 @@ sudo cp -r /путь/к/контейнеру/имя_контейнера /var/op
 sudo chown -R bitrix:bitrix /var/opt/cprocsp/keys/bitrix/
 find /var/opt/cprocsp/keys/bitrix/ -type d -exec chmod 700 {} +
 find /var/opt/cprocsp/keys/bitrix/ -type f -exec chmod 600 {} +
-
 ```
 
 ```bash
@@ -47,7 +49,7 @@ find /var/opt/cprocsp/keys/bitrix/ -type f -exec chmod 600 {} +
 /opt/cprocsp/bin/amd64/csptest -absorb -certs
 ```
 
-#### Шаг 3: Проверка успешности привязки
+#### Шаг 3: Проверка успешности привязки (под bitrix)
 
 ```bash
 /opt/cprocsp/bin/amd64/certmgr -list
@@ -57,20 +59,30 @@ find /var/opt/cprocsp/keys/bitrix/ -type f -exec chmod 600 {} +
 # Container           : HDIMAGE\\<имя_контейнера>\xxxx
 ```
 
-#### Шаг 4: Установка цепочки доверия CA для валидной проверки
+#### Шаг 4: Установка цепочки доверия CA (под root)
 
-Скачать и установить сертификаты УЦ:
+URL сертификата эмитента указан в поле **CA cert URL** в выводе `certmgr -list`.
+
+Пройти по цепочке: скачать сертификат по `CA cert URL`, установить, проверить — если у него тоже есть `CA cert URL`, скачать следующий, и так до корневого (у корневого **Issuer** == **Subject**).
+
+- Промежуточные сертификаты → `mca`
+- Корневой сертификат → `mroot`
+
 ```bash
-curl -fsSL -o /tmp/issuer.cer "URL_из_CA_эмитента"
-/opt/cprocsp/bin/amd64/certmgr -inst -store uRoot -file /tmp/issuer.cer
+# Скачать сертификат по CA cert URL
+curl -fsSL -o /tmp/ca.cer "URL_из_CA_cert_URL"
+
+# Промежуточный → mca
+sudo /opt/cprocsp/bin/amd64/certmgr -install -store mca -file /tmp/ca.cer
+
+# Повторять пока не дойдём до корневого, его установить в mroot
+sudo /opt/cprocsp/bin/amd64/certmgr -install -store mroot -file /tmp/root_ca.cer
 ```
 
-Проверить содержимое хранилищ:
+Проверка:
 ```bash
-/opt/cprocsp/bin/amd64/certmgr -list -store uMy
-/opt/cprocsp/bin/amd64/certmgr -list -store uCA
-/opt/cprocsp/bin/amd64/certmgr -list -store uRoot
-/opt/cprocsp/bin/amd64/certmgr -list -store uCRL
+/opt/cprocsp/bin/amd64/certmgr -list -store mroot
+/opt/cprocsp/bin/amd64/certmgr -list -store mca
 ```
 
 ### Важные замечания
